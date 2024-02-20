@@ -1,0 +1,42 @@
+[
+    {
+        "icon": "FiAirplay",
+        "text": "Dashboard",
+        "target": "/messaggi"
+    },
+    {
+        "icon": "FiList",
+        "text": "Lista Lavorazioni",
+        "target": "/operazioni"
+    },
+    {
+        "icon": "FiPaperclip",
+        "text": "Dettaglio Pratiche",
+        "target": "/dettaglio"
+    },
+    {
+        "icon": "FiCloudLightning",
+        "text": "Servizi Speciali",
+        "target": "/speciali"
+    },
+    {
+        "icon": "FiFilePlus",
+        "text": "Form Richiesta",
+        "target": "/form"
+    },
+    {
+        "icon": "FiBarChart",
+        "text": "Statistiche",
+        "target": "/statistiche"
+    },
+    {
+        "icon": "FiZoomIn",
+        "text": "Archivio Operazioni",
+        "target": "/archivio"
+    },
+    {
+        "icon": "FiCalendar",
+        "text": "Calendario",
+        "target": "/calendario"
+    }
+]

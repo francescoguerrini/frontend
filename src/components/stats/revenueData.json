@@ -1,0 +1,43 @@
+[
+    {
+        "label": "Jan",
+        "revenue": 8000,
+        "cost": 39000
+    },
+    {
+        "label": "Feb",
+        "revenue": 79885,
+        "cost": 125588
+    },
+    {
+        "label": "Mar",
+        "revenue": 47534,
+        "cost": 55443
+    },
+    {
+        "label": "Apr",
+        "revenue": 99676,
+        "cost": 49443
+    },
+    {
+        "label": "Jun",
+        "revenue": 85677,
+        "cost": 74443
+    },
+    {
+        "label": "Jul",
+        "revenue": 88556
+    },
+    {
+        "label": "Aug",
+        "revenue": 47534
+    },
+    {
+        "label": "Sep",
+        "revenue": 99676
+    },
+    {
+        "label": "Oct",
+        "revenue": 55677
+    }
+]

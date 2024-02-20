@@ -1,0 +1,26 @@
+[
+    {
+        "label": "Nome",
+        "placeholder": "placeholder",
+        "value": "formData.userFirstName || null",
+        "onChange": "handleChange",
+        "name": "FirstName",
+        "type": "text"
+    },
+    {
+        "label": "Cognome",
+        "placeholder": "placeholder",
+        "value": "formData.userLastName || null",
+        "onChange": "handleChange",
+        "name": "LastName",
+        "type": "text"
+    },
+    {
+        "label": "Codice Fiscale",
+        "placeholder": "placeholder",
+        "value": "formData.codiceFiscale || null",
+        "onChange": "handleChange",
+        "name": "CodiceFiscale",
+        "type": "text"
+    }
+]

@@ -1,0 +1,90 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --primary-color: #EB2B33;
+  --secondary-color: #7D1719;
+  --third-color: #100E46;
+  --fourth-color: #3F439F;
+  --fifth-color: #decfcf;
+  --sixth-color: #0C0F0A;
+  --seventh-color: #f8f8f8;
+}
+
+
+/* Altri stili CSS possono fare riferimento alle variabili di colore */
+body {
+background-color: var(--fifth-color);
+color: var(--sixth-color);
+}
+.text-first{
+    color: var(--primary-color);
+}
+.bg-first{
+  background-color: var(--primary-color);
+}
+.text-second{
+  color: var(--secondary-color);
+}
+.bg-second{
+background-color: var(--secondary-color);
+}
+.text-third{
+  color: var(--third-color);
+}
+.bg-third{
+background-color: var(--third-color);
+}
+.text-fourth{
+  color: var(--fourth-color);
+}
+.bg-fourth{
+background-color: var(--fourth-color);
+}
+.text-fifth{
+  color: var(--fifth-color);
+}
+.bg-fifth{
+background-color: var(--fifth-color);
+}
+.text-sixth{
+  color: var(--sixth-color);
+}
+.bg-sixth{
+background-color: var(--sixth-color);
+}
+.bg-seventh{
+background-color: var(--seventh-color);
+}
+
+.custom-shadow {
+  box-shadow: 0 1px 2px hsl(212, 27%, 69%); /* Imposta il colore dell'ombra qui */
+}
+.custom-gradient{
+  background: rgb(96, 96, 97);
+  background: linear-gradient(125deg, rgb(184, 184, 184) 25%,rgb(153, 181, 211) 70%, #629bcc 100%);
+}
+
+.title{
+  font-size: 1.1rem;
+  margin-bottom: .7rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+}
+
+/* bg-seventh mx-4 mt-8 mb-2 h-screen rounded-xl */
+.containerl{
+  margin-right: 4%;
+  margin-left: 4%;
+  margin-top: 1.5rem;
+  margin-bottom: .5rem;
+  height: 100%;
+  max-width: 100%;
+
+}
+.label{
+  font-size: .8rem;
+  font-weight: bold;
+  margin-bottom: .4rem;
+}
