@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import BaseInput from "./BaseInput_copy";
+import BaseInput from "./BaseInput_2";
 import testForm from "./testForm";
 import CheckBoxInput from "./CheckBoxInput";
 import MultiSelectInput from "./MultiSelectInput";

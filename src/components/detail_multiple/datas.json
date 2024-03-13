@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Mario"
+  },
+  {
+    "id": 2,
+    "name": "Luca"
+  },
+  {
+    "id": 3,
+    "name": "Paolo"
+  },
+  {
+    "id": 4,
+    "name": "Giovanni"
+  },
+  {
+    "id": 5,
+    "name": "Agostino"
+  },
+  {
+    "id": 6,
+    "name": "Stefano"
+  },
+  {
+    "id": 7,
+    "name": "Armando"
+  },
+  {
+    "id": 8,
+    "name": "Elisa"
+  },
+  {
+    "id": 9,
+    "name": "Lea"
+  },
+  {
+    "id": 10,
+    "name": "Marco"
+  }
+]

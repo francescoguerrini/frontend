@@ -10,6 +10,10 @@ import BD_Dashboard from "./pages/BD_Dashboard";
 import ProfiloUtente from "./pages/BD_ProfiloUtente";
 import Operazioni from "./pages/Operazioni";
 import BD_DettaglioPratica from "./pages/BD_DettaglioPratica";
+import BD_DettaglioPraticheMultiple from "./pages/BD_DettaglioPraticheMultiple";
+import BD_PasswordDimenticata from "./pages/BD_PasswordDimenticata";
+import BD_ReimpostaPassword from "./pages/BD_ReimpostaPassword";
+import BD_PasswordAggiornata from "./pages/BD_PasswordAggiornata";
 import Calendario from "./pages/Calendario";
 import ServiziSpeciali from "./pages/ServiziSpeciali";
 import BD_ArchivioOperazioni from "./pages/BD_ArchivioOperazioni";
@@ -28,6 +32,18 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/password-dimenticata"
+              element={<BD_PasswordDimenticata />}
+            />
+            <Route
+              path="/reimposta-password"
+              element={<BD_ReimpostaPassword />}
+            />
+            <Route
+              path="/password-aggiornata"
+              element={<BD_PasswordAggiornata />}
+            />
           </Routes>
           {userInfo ? (
             <>
@@ -37,6 +53,10 @@ function App() {
                 <Route path="/messaggi" element={<BD_Dashboard />} />
                 <Route path="/operazioni" element={<Operazioni />} />
                 <Route path="/dettaglio" element={<BD_DettaglioPratica />} />
+                <Route
+                  path="/multiple"
+                  element={<BD_DettaglioPraticheMultiple />}
+                />
                 <Route path="/calendario" element={<Calendario />} />
                 <Route path="/form" element={<Form />} />
                 <Route path="/speciali" element={<ServiziSpeciali />} />
