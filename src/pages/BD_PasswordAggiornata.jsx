@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PageTitle from "../components/PageTitle";
 
 const BD_PasswordAggiornata = () => {
@@ -11,7 +12,11 @@ const BD_PasswordAggiornata = () => {
               La tua password è stata modificata con successo!
             </div>
             <div>
-              Torna al <span className="text-sky-600">Login</span>
+              Torna al{" "}
+              <span className="text-sky-600">
+                {" "}
+                <Link to="/login">Login</Link>{" "}
+              </span>
             </div>
           </div>
         </div>

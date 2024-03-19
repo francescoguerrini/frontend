@@ -1,29 +1,39 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import BaseInput from "../components/product_form/BaseInput_2";
 import PageTitle from "../components/PageTitle";
 import useAxiosCall from "../hooks/useAxiosCall";
 
-const PASSWORD_RESET_URL = "http://localhost:8000/api/password-reset/";
+const PASSWORD_CHANGE_REQUEST_URL =
+  "http://localhost:8000/api/password-change-request/";
 
 const BD_PasswordDimenticata = () => {
   const [credential, setCredential] = useState("");
   const { responseMessage, makeApiCall } = useAxiosCall();
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const handleCredentialChange = (e) => {
     setCredential(e.target.value);
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ credenziali: credential });
     const payload = { credenziali: credential };
-    await makeApiCall(PASSWORD_RESET_URL, payload);
-    console.log("Risposta del server handle:", responseMessage);
+    await makeApiCall(PASSWORD_CHANGE_REQUEST_URL, payload);
     setCredential("");
   };
 
   useEffect(() => {
-    console.log("Risposta del server effect:", responseMessage);
-  }, [responseMessage]);
+    if (responseMessage === 200) {
+      navigate("/reimposta-password"); // Redirect alla pagina 'password-reset'
+    } else {
+      if (responseMessage && responseMessage !== 200) {
+        setErrorMessage(responseMessage);
+      }
+    }
+  }, [responseMessage, navigate]);
 
   return (
     <div className="containerl">
@@ -33,7 +43,7 @@ const BD_PasswordDimenticata = () => {
           onSubmit={handleSubmit}
           className="bg-black/5 rounded-md h-full flex justify-evenly items-center"
         >
-          <div onSubmit={handleSubmit} className="flex flex-col w-1/2 gap-8">
+          <div className="flex flex-col w-1/2 gap-8">
             <div className="text-2xl">Password dimenticata?</div>
             <div className="text-sm text-slate-800 w-[85%]">
               * Inserisci l&apos;email o il tuo nome utente. Invieremo un codice
@@ -60,6 +70,9 @@ const BD_PasswordDimenticata = () => {
                 Invia
               </button>
             </div>
+            {errorMessage !== "" && (
+              <div className="text-red-500">{errorMessage}</div>
+            )}
           </div>
         </form>
       </div>

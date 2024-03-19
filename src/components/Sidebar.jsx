@@ -1,6 +1,5 @@
 import { Image, Link } from "@nextui-org/react";
-import SidebarMenuSm from "./SidebarMenuSm";
-// import SidebarMenu from "./SidebarMenu";
+import SidebarMenu from "./SidebarMenu";
 import logo from "../assets/BD_logo.png";
 
 const Sidebar = () => {
@@ -17,11 +16,8 @@ const Sidebar = () => {
         </Link>
       </div>
       <div className="flex-grow flex flex-col items-center">
-        <SidebarMenuSm />
-      </div>
-      {/* <div className="flex flex-col flex-grow gap-12 items-center justify-center">
         <SidebarMenu />
-      </div> */}
+      </div>
     </div>
   );
 };

@@ -1,33 +1,33 @@
 [
     {
-        "icon": "FiAirplay",
+        "icon": "FiHome",
         "text": "Dashboard",
-        "target": "/messaggi"
+        "target": "/"
     },
     {
         "icon": "FiList",
         "text": "Lista Lavorazioni",
-        "target": "/operazioni"
+        "target": "/lista-lavorazioni"
     },
     {
-        "icon": "FiPaperclip",
+        "icon": "FiCopy",
         "text": "Dettaglio Pratiche",
-        "target": "/dettaglio"
+        "target": "/dettaglio-pratiche"
     },
     {
-        "icon": "FiPaperclip",
+        "icon": "FiGrid",
         "text": "Dettaglio Multiple",
         "target": "/multiple"
     },
     {
         "icon": "FiCloudLightning",
         "text": "Servizi Speciali",
-        "target": "/speciali"
+        "target": "/servizi-speciali"
     },
     {
         "icon": "FiFilePlus",
-        "text": "Form Richiesta",
-        "target": "/form"
+        "text": "Richiesta Servizio",
+        "target": "/richiesta-servizio"
     },
     {
         "icon": "FiBarChart",
@@ -37,7 +37,7 @@
     {
         "icon": "FiZoomIn",
         "text": "Archivio Operazioni",
-        "target": "/archivio"
+        "target": "/archivio-operazioni"
     },
     {
         "icon": "FiCalendar",

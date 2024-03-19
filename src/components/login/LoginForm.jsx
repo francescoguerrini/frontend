@@ -27,10 +27,8 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      {error && <p className="text-red-700 ">{error}</p>}
-      {loading && <p className="animate-pulse">Loading...</p>}
-      <div className="border-2 border-teal-300 p-6 rounded-xl my-auto">
+    <div className="flex flex-col gap-4 justify-center items-center h-screen">
+      <div className="border-2 border-rose-400 p-6 rounded-xl">
         <form onSubmit={submitHandler} className="flex flex-col gap-8">
           <label htmlFor="username">Username:</label>
           <input
@@ -40,7 +38,7 @@ const LoginForm = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-            className="bg-slate-50 border rounded-lg border-black hover:border-teal-400 p-[.2rem]"
+            className="bg-slate-50 border rounded-lg border-slate-700 hover:border-rose-400 p-[.2rem]"
           />
 
           <label htmlFor="password">Password:</label>
@@ -51,22 +49,23 @@ const LoginForm = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="bg-slate-50 border rounded-lg border-black hover:border-teal-400 p-[.2rem]"
+            className="bg-slate-50 border rounded-lg border-slate-700 hover:border-rose-400 p-[.2rem]"
           />
 
           <button
             type="submit"
-            className="bg-teal-200 rounded-full mx-auto py-1 px-3 mt-4 hover:text-teal-200 hover:bg-black transition-all duration-500 "
+            className="bg-rose-400 rounded-full mx-auto py-1 px-3 mt-4 hover:text-rose-500 hover:bg-slate-700 transition-all duration-500 "
           >
             Accedi
           </button>
         </form>
-        <p className="mt-8 mb-6 font-bold">
-          <span className="">Password dimenticata?</span>
-          <span className="text-rose-700 pl-1">
-            <Link to={"/"}>Contattaci</Link>
-          </span>
+        <p className="mt-8 mb-6 pl-1 flex justify-center text-slate-700 hover:text-rose-600">
+          <Link to={"/password-dimenticata"}>Password dimenticata?</Link>
         </p>
+      </div>
+      <div>
+        {error && <p className="text-red-700 ">{error}</p>}
+        {loading && <p className="animate-pulse">Loading...</p>}
       </div>
     </div>
   );
