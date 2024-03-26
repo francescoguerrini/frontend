@@ -55,7 +55,7 @@ const MyForm = ({ width = "2/3" }) => {
           <CheckBoxInput />
           <DatePickerInput />
         </div>
-        <div className="flex">
+        <div className="flex my-2">
           <button
             type="submit"
             className="bg-rose-700 text-white px-4 py-1 rounded-md"

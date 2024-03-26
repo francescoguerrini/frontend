@@ -1,9 +1,11 @@
 import { useState } from "react";
-
 import axios from "axios";
 
 const useAxiosCall = () => {
-  const [responseMessage, setResponseMessage] = useState(null);
+  const [responseMessage, setResponseMessage] = useState({
+    status: null,
+    message: null,
+  });
 
   const makeApiCall = async (url, formData) => {
     try {
@@ -12,11 +14,20 @@ const useAxiosCall = () => {
           "Content-Type": "application/json",
         },
       });
-      setResponseMessage(response.message); //
+      // Imposta status e message
+      setResponseMessage({
+        status: response.status,
+        message: response.data.message,
+      });
+      console.log(responseMessage);
     } catch (error) {
-      // Puoi gestire gli errori qui
+      // Gestione errori
       console.error("Errore nella chiamata API:", error.message);
-      setResponseMessage(error.status);
+      // Imposta responseMessage come oggetto con status e message dell'errore
+      setResponseMessage({
+        status: error.response.status,
+        message: error.response.data.message,
+      });
       console.log(responseMessage, "qui");
     }
   };

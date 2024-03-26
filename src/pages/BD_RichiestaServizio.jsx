@@ -1,12 +1,11 @@
 import BD_Button from "../components/BD_Button";
 import MyForm from "../components/product_form/MyForm";
+import PageTitle from "../components/PageTitle";
 
 const Form = () => {
   return (
-    <div className="containerl h-full flex flex-col gap-4">
-      <div className="bg-black/5 p-1 rounded-md title shadow-md">
-        Richiesta Servizio
-      </div>
+    <div className="containerl h-full flex flex-col gap-2">
+      <PageTitle title="Richiesta Servizio" />
       <div className="bg-seventh rounded-md h-1/3 w-full flex gap-4 p-3">
         <div className="flex-grow flex flex-col gap-2 border-r">
           <div className="text-[.6rem]">SERVIZI ANTIFRODE</div>

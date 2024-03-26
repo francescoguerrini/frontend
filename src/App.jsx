@@ -1,19 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Layout from "./components/Layout";
-import BD_Dashboard from "./pages/BD_Dashboard";
+import Dashboard from "./pages/BD_Dashboard";
 import ProfiloUtente from "./pages/BD_ProfiloUtente";
-import BD_ListaLavorazioni from "./pages/BD_ListaLavorazioni";
-import BD_DettaglioPratica from "./pages/BD_DettaglioPratica";
-import BD_DettaglioPraticheMultiple from "./pages/BD_DettaglioPraticheMultiple";
-import BD_PasswordDimenticata from "./pages/BD_PasswordDimenticata";
-import BD_ReimpostaPassword from "./pages/BD_ReimpostaPassword";
-import BD_PasswordAggiornata from "./pages/BD_PasswordAggiornata";
+import ListaLavorazioni from "./pages/BD_ListaLavorazioni";
+import DettaglioPratica from "./pages/BD_DettaglioPratica";
+import DettaglioPraticheMultiple from "./pages/BD_DettaglioPraticheMultiple";
+import PasswordDimenticata from "./pages/BD_PasswordDimenticata";
+import ReimpostaPassword from "./pages/BD_ReimpostaPassword";
+import PasswordAggiornata from "./pages/BD_PasswordAggiornata";
+import ServiziSpeciali from "./pages/BD_ServiziSpeciali";
+import ArchivioOperazioni from "./pages/BD_ArchivioOperazioni";
+import Statistiche from "./pages/BD_Statistiche";
+import RichiestaServizio from "./pages/BD_RichiestaServizio";
 import Calendario from "./pages/Calendario";
-import ServiziSpeciali from "./pages/ServiziSpeciali";
-import BD_ArchivioOperazioni from "./pages/BD_ArchivioOperazioni";
-import BD_Statistiche from "./pages/BD_Statistiche";
-import BD_RichiestaServizio from "./pages/BD_RichiestaServizio";
 import LoginPage from "./pages/BD_LoginPage";
 import LogoutPage from "./pages/BD_LogoutPage";
 
@@ -29,46 +29,43 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route
               path="/password-dimenticata"
-              element={<BD_PasswordDimenticata />}
+              element={<PasswordDimenticata />}
             />
-            <Route
-              path="/reimposta-password"
-              element={<BD_ReimpostaPassword />}
-            />
+            <Route path="/reimposta-password" element={<ReimpostaPassword />} />
             <Route
               path="/password-aggiornata"
-              element={<BD_PasswordAggiornata />}
+              element={<PasswordAggiornata />}
             />
             <Route path="/logout" element={<LogoutPage />} />
           </Routes>
           {userInfo ? (
             <>
               <Routes>
-                <Route path="/" element={<BD_Dashboard />} />
+                <Route path="/" element={<Dashboard />} />
                 <Route path="/profilo" element={<ProfiloUtente />} />
                 <Route
                   path="/lista-lavorazioni"
-                  element={<BD_ListaLavorazioni />}
+                  element={<ListaLavorazioni />}
                 />
                 <Route
                   path="/dettaglio-pratiche"
-                  element={<BD_DettaglioPratica />}
+                  element={<DettaglioPratica />}
                 />
                 <Route
                   path="/multiple"
-                  element={<BD_DettaglioPraticheMultiple />}
+                  element={<DettaglioPraticheMultiple />}
                 />
                 <Route path="/calendario" element={<Calendario />} />
                 <Route
                   path="/richiesta-servizio"
-                  element={<BD_RichiestaServizio />}
+                  element={<RichiestaServizio />}
                 />
                 <Route path="/servizi-speciali" element={<ServiziSpeciali />} />
                 <Route
                   path="/archivio-operazioni"
-                  element={<BD_ArchivioOperazioni />}
+                  element={<ArchivioOperazioni />}
                 />
-                <Route path="/statistiche" element={<BD_Statistiche />} />
+                <Route path="/statistiche" element={<Statistiche />} />
               </Routes>
             </>
           ) : (

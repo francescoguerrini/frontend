@@ -1,10 +1,11 @@
-import DetailMultiple from "../components/detail_multiple/DetailMultiple";
+import ComingSoon from "../components/ComingSoon";
 
 const BD_DettaglioPraticheMultiple = () => {
   return (
-    <div>
-      dettaglio multiple
-      <DetailMultiple />{" "}
+    <div className="h-full w-full flex items-center justify-center">
+      <div>
+        <ComingSoon />{" "}
+      </div>
     </div>
   );
 };

@@ -28,7 +28,7 @@ const LoginForm = () => {
 
   return (
     <div className="flex flex-col gap-4 justify-center items-center h-screen">
-      <div className="border-2 border-rose-400 p-6 rounded-xl">
+      <div className="border-2 border-rose-500 p-6 rounded-xl">
         <form onSubmit={submitHandler} className="flex flex-col gap-8">
           <label htmlFor="username">Username:</label>
           <input
@@ -38,7 +38,7 @@ const LoginForm = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-            className="bg-slate-50 border rounded-lg border-slate-700 hover:border-rose-400 p-[.2rem]"
+            className="bg-slate-50 border rounded-lg border-slate-700 hover:border-rose-600 p-[.2rem]"
           />
 
           <label htmlFor="password">Password:</label>
@@ -49,12 +49,12 @@ const LoginForm = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="bg-slate-50 border rounded-lg border-slate-700 hover:border-rose-400 p-[.2rem]"
+            className="bg-slate-50 border rounded-lg border-slate-700 hover:border-rose-600 p-[.2rem]"
           />
 
           <button
             type="submit"
-            className="bg-rose-400 rounded-full mx-auto py-1 px-3 mt-4 hover:text-rose-500 hover:bg-slate-700 transition-all duration-500 "
+            className="bg-rose-600 text-white rounded-full mx-auto py-1 px-3 mt-4 hover:bg-slate-700 transition-all duration-500 "
           >
             Accedi
           </button>

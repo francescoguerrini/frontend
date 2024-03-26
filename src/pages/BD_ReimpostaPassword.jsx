@@ -42,9 +42,9 @@ const BD_ReimpostaPassword = () => {
     console.log(payload);
 
     await makeApiCall(PASSWORD_RESET_URL, payload);
-    if (responseMessage) {
-      setErrorMessage(responseMessage);
-    }
+    // Non è necessario controllare responseMessage, in quanto è già gestito nell'hook useAxiosCall
+
+    // Pulisci i campi dopo l'invio
     setUser("");
     setPassword("");
     setConfirmPassword("");
@@ -52,12 +52,13 @@ const BD_ReimpostaPassword = () => {
   };
 
   useEffect(() => {
-    if (responseMessage === 200) {
+    // Controlliamo se c'è un messaggio di errore nell'oggetto responseMessage
+    if (responseMessage && responseMessage.status !== 200) {
+      // Se c'è, impostiamo il messaggio di errore
+      setErrorMessage(responseMessage.message);
+    } else if (responseMessage && responseMessage.status === 200) {
+      // Se non ci sono errori e lo status è 200, reindirizziamo alla pagina di password aggiornata
       navigate("/password-aggiornata");
-    } else {
-      if (responseMessage && responseMessage !== 200) {
-        setErrorMessage(responseMessage);
-      }
     }
   }, [responseMessage, navigate]);
 

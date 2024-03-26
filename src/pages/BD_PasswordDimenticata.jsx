@@ -10,7 +10,7 @@ const PASSWORD_CHANGE_REQUEST_URL =
 const BD_PasswordDimenticata = () => {
   const [credential, setCredential] = useState("");
   const { responseMessage, makeApiCall } = useAxiosCall();
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // Aggiungiamo lo stato per il messaggio di errore
 
   const navigate = useNavigate();
 
@@ -26,12 +26,13 @@ const BD_PasswordDimenticata = () => {
   };
 
   useEffect(() => {
-    if (responseMessage === 200) {
-      navigate("/reimposta-password"); // Redirect alla pagina 'password-reset'
-    } else {
-      if (responseMessage && responseMessage !== 200) {
-        setErrorMessage(responseMessage);
-      }
+    // Controlliamo se c'è un messaggio di errore nell'oggetto responseMessage
+    if (responseMessage && responseMessage.status !== 200) {
+      // Se c'è, impostiamo il messaggio di errore
+      setErrorMessage(responseMessage.message);
+    } else if (responseMessage && responseMessage.status === 200) {
+      // Se non ci sono errori e lo status è 200, reindirizziamo alla pagina di reimpostazione password
+      navigate("/reimposta-password");
     }
   }, [responseMessage, navigate]);
 
@@ -46,9 +47,9 @@ const BD_PasswordDimenticata = () => {
           <div className="flex flex-col w-1/2 gap-8">
             <div className="text-2xl">Password dimenticata?</div>
             <div className="text-sm text-slate-800 w-[85%]">
-              * Inserisci l&apos;email o il tuo nome utente. Invieremo un codice
-              OTP all&apos;indirizzo email associato al tuo account con cui
-              potrai reimpostare la pasword.
+              * Inserisci la tua email o il tuo nome utente. Invieremo
+              all&apos;indirizzo email associato all&apos;account un codice OTP
+              con cui potrai reimpostare la password.
             </div>
           </div>
           <div className="w-[42%] flex flex-col gap-8">
