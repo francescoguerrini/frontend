@@ -8,8 +8,10 @@ const Form = () => {
       <PageTitle title="Richiesta Servizio" />
       <div className="bg-seventh rounded-md h-1/3 w-full flex gap-4 p-3">
         <div className="flex-grow flex flex-col gap-2 border-r">
-          <div className="text-[.6rem]">SERVIZI ANTIFRODE</div>
-          <div className="text-xl">NOME SERVIZIO</div>
+          <div className="text-[.6rem]">
+            Informazioni per il recupero del credito
+          </div>
+          <div className="text-xl">DETECT PLUS</div>
           <div className="text-[.6rem]">
             IL REPORT AGGREGA INFORMAZIONI SU PERSONE FISICHE PROVENIENTI DA
             DIVERSE FONTI PUBBLICHE E L&apost; ELENCO DELLE RECENSIONI STAMPA AI

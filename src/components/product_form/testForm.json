@@ -1,6 +1,6 @@
 [
     {
-        "label": "Nome",
+        "label": "Denominazione",
         "placeholder": "placeholder",
         "value": "formData.userFirstName || null",
         "onChange": "handleChange",
@@ -8,7 +8,7 @@
         "type": "text"
     },
     {
-        "label": "Cognome",
+        "label": "Partita Iva",
         "placeholder": "placeholder",
         "value": "formData.userLastName || null",
         "onChange": "handleChange",

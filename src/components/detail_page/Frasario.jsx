@@ -2,13 +2,12 @@ import { FiCopy } from "react-icons/fi";
 
 const Frasario = () => {
   const suggerimenti = [
-    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperi",
-    "Lorem ipsum ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo invenSed ut perspiciatis unde omnis iste natus, totam rem aperiam eaque ipsa, quae ab illo inven",
-    "Sed ut perspiciatis error sit voluptatem accusantium doloremque laudantium, totam rem, quae ab illo invenSed ut natus error sit voluptatem laudantium, totam rem ipsa, quae ab illo inven",
-    "Lorem ipsum ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque error sit voluptatem accusantium doloremque laudantium",
-    "Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non",
-    "Lorem ipsum ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque Sed ut perspiciatis",
-    "Sed ut perspiciatis error sit voluptatem perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque Sed ut perspiciatis",
+    "ATTENZIONE! il Codice fiscale inserito in fase di richiesta risulta NON VALIDO, nel corso degli accertamenti è emerso il seguente CF VALIDO: XXXXXXXXXXXXXXX, sul quale sono proseguiti gli approfondimenti investigativi.",
+    "Dalle ricerche svolte è emerso che l'ultima residenza anagrafica conosciuta è in: XXX XXXXXXXXX XXXXXXX XXXXXXXX (XX)",
+    "Le indagini esperite ci hanno consentito di accertare che il soggetto risulterebbe essere: LAVORATORE SUBORDINATO FULL TIME A TEMPO INDETERMINATO",
+    "Dalle indagini svolte è emerso che l'azienda è tuttora operante nel settore indicato. Estese le ricerche all'indirizzo della sede legale, abbiamo appreso che ivi dispone di locali adibiti allo scopo. A suo nome si rileva l'utenza telefonica XXXXXXXXXXX, attiva. L'iniziativa è inoltre raggiungibile al sito web XXXXXXXXXXXXXX.",
+    "Durante gli approfondimenti condotti non sono emerse informazioni circa la presenza di gravami sugli emolumenti derivanti da pensione/stipendio.",
+    "Dalle indagini svolte è eStando a quanto appreso, si tratterebbe di posizione chiusa in seguito a criticità.merso che la società risulta censita, senza alcun rapporto in essere, presso l'istituto di credito XXXXXXXXXXXXXXXXXXX.",
   ];
   return (
     <div className="h-full overflow-auto">

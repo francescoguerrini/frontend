@@ -12,7 +12,7 @@ const ToggleLog = () => {
 
   const handleLogout = () => {
     dispatch(logout());
-    navigate("/logout");
+    navigate("/login/");
   };
 
   return (

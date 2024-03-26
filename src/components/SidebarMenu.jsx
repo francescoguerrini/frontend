@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Tooltip } from "@nextui-org/react";
+import { FaRegFilePdf, FaRegFileExcel } from "react-icons/fa";
 import {
   FiCalendar,
   FiCopy,
   FiGrid,
   FiHome,
   FiArrowRightCircle,
-  FiFilePlus,
   FiBarChart,
   FiList,
-  FiCloudLightning,
   FiZoomIn,
 } from "react-icons/fi";
 import UserTooltip from "./UserTooltip";
@@ -24,10 +23,10 @@ const SidebarMenuSm = () => {
     FiGrid,
     FiHome,
     FiArrowRightCircle,
-    FiFilePlus,
+    FaRegFilePdf,
     FiBarChart,
     FiList,
-    FiCloudLightning,
+    FaRegFileExcel,
     FiZoomIn,
   };
   const [voiceActiveSm, setVoiceActiveSm] = useState("");

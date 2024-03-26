@@ -18,7 +18,7 @@ const PageR = () => {
         <div className="h-full flex items-center justify-center rounded shadow-md flex-grow">
           <TextArea
             id="myTextarea"
-            placeholder="Scrivi qui..."
+            placeholder="Redazione veloce..."
             value={value}
             onChange={handleChange}
             className="text-slate-800 shadow-xl" // Puoi personalizzare ulteriormente qui

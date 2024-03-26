@@ -45,12 +45,12 @@ const MyForm = ({ width = "2/3" }) => {
           <MultiSelectInput
             selection_mode="single"
             item_list={province}
-            label="Provincia di Nascita"
+            label="Provincia"
           />
           <MultiSelectInput
             item_list={product_options}
             selection_mode="multiple"
-            label="Seleziona uno o più Prodotti"
+            label="Prodotti Aggiuntivi"
           />
           <CheckBoxInput />
           <DatePickerInput />

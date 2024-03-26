@@ -12,8 +12,8 @@ const BD_Dashboard = () => {
       <PageTitle title="Statistiche" />
       <div className="flex flex-col bg-seventh rounded-md p-2 w-full shadow-md">
         <div className="flex justify-between">
-          <div>label</div>
-          <div>select</div>
+          <div>Fatturato</div>
+          <div>Anno Corrente</div>
         </div>
         <div className="">
           <LineChart />

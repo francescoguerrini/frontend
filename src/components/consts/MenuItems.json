@@ -6,33 +6,28 @@
     },
     {
         "icon": "FiList",
-        "text": "Lista Lavorazioni",
+        "text": "Richieste",
         "target": "/lista-lavorazioni"
     },
     {
         "icon": "FiCopy",
-        "text": "Dettaglio Pratiche",
+        "text": "Gestione Report",
         "target": "/dettaglio-pratiche"
     },
     {
-        "icon": "FiGrid",
-        "text": "Dettaglio Multiple",
-        "target": "/multiple"
-    },
-    {
-        "icon": "FiCloudLightning",
-        "text": "Servizi Speciali",
-        "target": "/servizi-speciali"
-    },
-    {
-        "icon": "FiFilePlus",
-        "text": "Richiesta Servizio",
+        "icon": "FaRegFilePdf",
+        "text": "Richiesta Report",
         "target": "/richiesta-servizio"
     },
     {
-        "icon": "FiBarChart",
-        "text": "Statistiche",
-        "target": "/statistiche"
+        "icon": "FiGrid",
+        "text": "Gestione Massivi",
+        "target": "/multiple"
+    },
+    {
+        "icon": "FaRegFileExcel",
+        "text": "Richiesta Massivi",
+        "target": "/servizi-speciali"
     },
     {
         "icon": "FiZoomIn",
@@ -40,8 +35,13 @@
         "target": "/archivio-operazioni"
     },
     {
+        "icon": "FiBarChart",
+        "text": "Statistiche",
+        "target": "/statistiche"
+    },
+    {
         "icon": "FiCalendar",
-        "text": "Calendario",
+        "text": "Calendar",
         "target": "/calendario"
     }
 ]
