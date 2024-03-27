@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import BaseInput from "./BaseInput_copy";
+import BaseInput from "./BaseInput_2";
 import testForm from "./testForm";
 import CheckBoxInput from "./CheckBoxInput";
 import MultiSelectInput from "./MultiSelectInput";
@@ -45,17 +45,17 @@ const MyForm = ({ width = "2/3" }) => {
           <MultiSelectInput
             selection_mode="single"
             item_list={province}
-            label="Provincia di Nascita"
+            label="Provincia"
           />
           <MultiSelectInput
             item_list={product_options}
             selection_mode="multiple"
-            label="Seleziona uno o più Prodotti"
+            label="Prodotti Aggiuntivi"
           />
           <CheckBoxInput />
           <DatePickerInput />
         </div>
-        <div className="flex">
+        <div className="flex my-2">
           <button
             type="submit"
             className="bg-rose-700 text-white px-4 py-1 rounded-md"

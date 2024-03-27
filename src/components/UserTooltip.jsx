@@ -1,6 +1,6 @@
 import { Avatar, Link, Tooltip } from "@nextui-org/react";
 import { useSelector } from "react-redux";
-import anon_user from "../assets/anon_user.png";
+import rafael from "../assets/rafael.png";
 
 const UserTooltip = () => {
   const userLogin = useSelector((state) => state.userLogin);
@@ -16,7 +16,7 @@ const UserTooltip = () => {
         >
           <Link href="/profilo">
             <Avatar
-              src={userInfo?.username ? anon_user : ""}
+              src={userInfo?.username ? rafael : ""}
               size="lg"
               placement="bottom"
             />

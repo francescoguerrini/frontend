@@ -1,3 +1,4 @@
+import PageTitle from "../components/PageTitle";
 import LineChart from "../components/stats/LineChart";
 import BarChart from "../components/stats/BarChart";
 import BarChart2 from "../components/stats/BarChart2";
@@ -8,13 +9,11 @@ import PieChart from "../components/stats/PieChart";
 const BD_Dashboard = () => {
   return (
     <div className="containerl flex flex-col h-full gap-2 ">
-      <div className="bg-black/5 p-1 rounded-md title shadow-md">
-        Statistiche
-      </div>
+      <PageTitle title="Statistiche" />
       <div className="flex flex-col bg-seventh rounded-md p-2 w-full shadow-md">
         <div className="flex justify-between">
-          <div>label</div>
-          <div>select</div>
+          <div>Fatturato</div>
+          <div>Anno Corrente</div>
         </div>
         <div className="">
           <LineChart />

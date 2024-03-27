@@ -1,9 +1,12 @@
 import ComingSoon from "../components/ComingSoon";
+import calendario from "../assets/calendario.png";
 
 const Calendario = () => {
   return (
     <div className="containerl">
-      <ComingSoon />
+      <div className="h-full w-full flex justify-center items-center">
+        <ComingSoon image_src={calendario} width="720" />
+      </div>
     </div>
   );
 };

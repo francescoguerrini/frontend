@@ -1,7 +1,7 @@
 // eslint-disable-next-line react/prop-types
 const BD_Button = ({ text, is_full, onClick }) => {
   const commonClasses =
-    "px-4 py-1 border rounded-lg transition-all duration-300";
+    "px-2 py-1 border rounded-lg transition-all duration-300 text-tiny";
 
   // Classi specifiche in base al valore di is_full
   const specificClasses = is_full

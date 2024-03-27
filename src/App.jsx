@@ -1,22 +1,23 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Layout from "./components/Layout";
-import BD_Dashboard from "./pages/BD_Dashboard";
+import Dashboard from "./pages/BD_Dashboard";
 import ProfiloUtente from "./pages/BD_ProfiloUtente";
-import Operazioni from "./pages/Operazioni";
-import BD_DettaglioPratica from "./pages/BD_DettaglioPratica";
+import ListaLavorazioni from "./pages/BD_ListaLavorazioni";
+import GestioneReport from "./pages/BD_GestioneReport";
+import DettaglioPraticheMultiple from "./pages/BD_DettaglioPraticheMultiple";
+import PasswordDimenticata from "./pages/BD_PasswordDimenticata";
+import ReimpostaPassword from "./pages/BD_ReimpostaPassword";
+import PasswordAggiornata from "./pages/BD_PasswordAggiornata";
+import ServiziSpeciali from "./pages/BD_ServiziSpeciali";
+import ArchivioOperazioni from "./pages/BD_ArchivioOperazioni";
+import Statistiche from "./pages/BD_Statistiche";
+import Monitoraggio from "./pages/BD_Monitoraggio";
+import RichiestaServizio from "./pages/BD_RichiestaServizio";
+import RicercaAnagrafica from "./pages/BD_RicercaAnagrafica";
 import Calendario from "./pages/Calendario";
-import ServiziSpeciali from "./pages/ServiziSpeciali";
-import BD_ArchivioOperazioni from "./pages/BD_ArchivioOperazioni";
-import BD_Statistiche from "./pages/BD_Statistiche";
-import Form from "./pages/Form";
-import LoginPage from "./pages/LoginPage";
-import LogoutPage from "./pages/LogoutPage";
+import LoginPage from "./pages/BD_LoginPage";
+import LogoutPage from "./pages/BD_LogoutPage";
 
 function App() {
   const userLogin = useSelector((state) => state.userLogin);
@@ -28,25 +29,51 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/password-dimenticata"
+              element={<PasswordDimenticata />}
+            />
+            <Route path="/reimposta-password" element={<ReimpostaPassword />} />
+            <Route
+              path="/password-aggiornata"
+              element={<PasswordAggiornata />}
+            />
+            <Route path="/logout" element={<LogoutPage />} />
           </Routes>
           {userInfo ? (
             <>
               <Routes>
-                <Route path="/" element={<BD_Dashboard />} />
+                <Route path="/" element={<Dashboard />} />
                 <Route path="/profilo" element={<ProfiloUtente />} />
-                <Route path="/messaggi" element={<BD_Dashboard />} />
-                <Route path="/operazioni" element={<Operazioni />} />
-                <Route path="/dettaglio" element={<BD_DettaglioPratica />} />
+                <Route
+                  path="/lista-lavorazioni"
+                  element={<ListaLavorazioni />}
+                />
+                <Route path="/gestione-report" element={<GestioneReport />} />
+                <Route
+                  path="/multiple"
+                  element={<DettaglioPraticheMultiple />}
+                />
                 <Route path="/calendario" element={<Calendario />} />
-                <Route path="/form" element={<Form />} />
-                <Route path="/speciali" element={<ServiziSpeciali />} />
-                <Route path="/archivio" element={<BD_ArchivioOperazioni />} />
-                <Route path="/statistiche" element={<BD_Statistiche />} />
-                <Route path="/logout" element={<LogoutPage />} />
+                <Route
+                  path="/richiesta-servizio"
+                  element={<RichiestaServizio />}
+                />
+                <Route
+                  path="/ricerca-anagrafica"
+                  element={<RicercaAnagrafica />}
+                />
+                <Route path="/servizi-speciali" element={<ServiziSpeciali />} />
+                <Route
+                  path="/archivio-operazioni"
+                  element={<ArchivioOperazioni />}
+                />
+                <Route path="/monitoraggio" element={<Monitoraggio />} />
+                <Route path="/statistiche" element={<Statistiche />} />
               </Routes>
             </>
           ) : (
-            <Navigate to="/login" />
+            ""
           )}
         </Layout>
       </Router>

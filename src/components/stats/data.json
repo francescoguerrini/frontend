@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "nome": "Mario",
+    "nome": "Deborah",
     "anno": 2023,
     "praticheAssegnate": 730,
     "praticheConsegnate": 712,
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "nome": "Luca",
+    "nome": "Chiara",
     "anno": 2023,
     "praticheAssegnate": 1111,
     "praticheConsegnate": 783,
@@ -17,7 +17,7 @@
   },
   {
     "id": 1,
-    "nome": "Giovanna",
+    "nome": "Susanna",
     "anno": 2023,
     "praticheAssegnate": 700,
     "praticheConsegnate": 220,
@@ -25,7 +25,7 @@
   },
   {
     "id": 1,
-    "nome": "Elisa",
+    "nome": "Giulia",
     "anno": 2023,
     "praticheAssegnate": 450,
     "praticheConsegnate": 335,

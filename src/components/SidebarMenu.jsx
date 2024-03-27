@@ -1,40 +1,45 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Tooltip } from "@nextui-org/react";
+import { FaRegFilePdf, FaRegFileExcel } from "react-icons/fa";
 import {
   FiCalendar,
-  FiPaperclip,
-  FiAirplay,
+  FiCopy,
+  FiGrid,
+  FiHome,
   FiArrowRightCircle,
-  FiFilePlus,
   FiBarChart,
   FiList,
-  FiCloudLightning,
   FiZoomIn,
+  FiCrosshair,
+  FiEye,
 } from "react-icons/fi";
 import UserTooltip from "./UserTooltip";
-import ToggleLogSm from "./ToggleLogSm";
+import ToggleLog from "./ToggleLog";
 import linksData from "./consts/MenuItems.json";
 
 const SidebarMenuSm = () => {
   const iconMap = {
     FiCalendar,
-    FiPaperclip,
-    FiAirplay,
+    FiCopy,
+    FiGrid,
+    FiHome,
     FiArrowRightCircle,
-    FiFilePlus,
+    FaRegFilePdf,
     FiBarChart,
     FiList,
-    FiCloudLightning,
+    FaRegFileExcel,
     FiZoomIn,
+    FiCrosshair,
+    FiEye,
   };
   const [voiceActiveSm, setVoiceActiveSm] = useState("");
   return (
-    <div className="flex flex-col text-xl items-center gap-10 transition-all duration-250">
+    <div className="flex flex-col text-xl items-center gap-4 transition-all duration-250">
       <div className="hover:scale-105 transition-all duration-500">
         <UserTooltip />
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
         {linksData.map((link, index) => {
           const Icon = iconMap[link.icon];
           return (
@@ -65,9 +70,9 @@ const SidebarMenuSm = () => {
             </button>
           );
         })}
-      </div>
-      <div>
-        <ToggleLogSm />
+        <div>
+          <ToggleLog />
+        </div>
       </div>
     </div>
   );

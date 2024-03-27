@@ -11,25 +11,25 @@ import PropTypes from "prop-types";
 const rows = [
   {
     key: "1",
-    name: "Cirio",
+    name: "Findomestic",
     role: "31/12/2023",
     status: "Tu",
   },
   {
     key: "2",
-    name: "Parmalat",
+    name: "MBCS",
     role: "31/12/2023",
     status: "Giulia Eredia",
   },
   {
     key: "3",
-    name: "Monte Paschi",
+    name: "KRUK",
     role: "31/12/2023",
     status: "Deborah Repossi",
   },
   {
     key: "4",
-    name: "Panini Durini",
+    name: "Value Tracing srl",
     role: "31/12/2023",
     status: "Valentina Guanziroli",
   },

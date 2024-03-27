@@ -1,28 +1,43 @@
 [
     {
-        "icon": "FiAirplay",
+        "icon": "FiHome",
         "text": "Dashboard",
-        "target": "/messaggi"
+        "target": "/"
     },
     {
         "icon": "FiList",
-        "text": "Lista Lavorazioni",
-        "target": "/operazioni"
+        "text": "Richieste",
+        "target": "/lista-lavorazioni"
     },
     {
-        "icon": "FiPaperclip",
-        "text": "Dettaglio Pratiche",
-        "target": "/dettaglio"
+        "icon": "FiCopy",
+        "text": "Gestione Report",
+        "target": "/gestione-report"
     },
     {
-        "icon": "FiCloudLightning",
-        "text": "Servizi Speciali",
-        "target": "/speciali"
+        "icon": "FaRegFilePdf",
+        "text": "Richiesta Report",
+        "target": "/richiesta-servizio"
     },
     {
-        "icon": "FiFilePlus",
-        "text": "Form Richiesta",
-        "target": "/form"
+        "icon": "FiGrid",
+        "text": "Gestione Massivi",
+        "target": "/multiple"
+    },
+    {
+        "icon": "FaRegFileExcel",
+        "text": "Richiesta Massivi",
+        "target": "/servizi-speciali"
+    },
+    {
+        "icon": "FiZoomIn",
+        "text": "Archivio Operazioni",
+        "target": "/archivio-operazioni"
+    },
+    {
+        "icon": "FiCrosshair",
+        "text": "Ricerca Anagrafica",
+        "target": "/ricerca-anagrafica"
     },
     {
         "icon": "FiBarChart",
@@ -30,13 +45,13 @@
         "target": "/statistiche"
     },
     {
-        "icon": "FiZoomIn",
-        "text": "Archivio Operazioni",
-        "target": "/archivio"
+        "icon": "FiEye",
+        "text": "Monitoraggio",
+        "target": "/monitoraggio"
     },
     {
         "icon": "FiCalendar",
-        "text": "Calendario",
+        "text": "Calendar",
         "target": "/calendario"
     }
 ]

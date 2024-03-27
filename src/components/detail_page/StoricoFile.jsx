@@ -2,13 +2,13 @@ import { FiFile, FiDownload } from "react-icons/fi";
 
 const StoricoFile = () => {
   const files = [
-    "MarioRossi.docx",
-    "MarioRossiAnagrafica.docx",
-    "MarioRossiCatasto.docx",
-    "MarioRossiSocial.docx",
+    "RispostaCerved.docx",
+    "GNNDL23C21H143L.docx",
+    "GennaroDeLucaCatasto.docx",
+    "SGRGennaro.docx",
   ];
   return (
-    <div className="p-2">
+    <div className="p-2 h-[70%] flex flex-col justify-between">
       <div className="title">Storico dei File</div>
       <div className="flex flex-col gap-1">
         {files.map((file, index) => (
