@@ -110,15 +110,12 @@ const RicercaAnagrafica = () => {
             </button>
           </div>
         </form>
-        {/* {cardItems && (
+        {cardItems && (
           <div className="grid grid-cols-2 gap-2">
-            {cardItems.map((item, index) => (
+            {cardItems["companies"].map((item, index) => (
               <RicercaAnagrafiCard
                 key={index}
                 denominazione={item["dati_anagrafici"]["denominazione"]}
-                ragione_sociale={
-                  item["dati_attivita"]["company_form"]["description"]
-                }
                 partita_iva={item["dati_anagrafici"]["partita_iva"]}
                 codice_fiscale={item["dati_anagrafici"]["codice_fiscale"]}
                 id_soggetto={item["dati_anagrafici"]["id_soggetto"]}
@@ -137,7 +134,7 @@ const RicercaAnagrafica = () => {
               <div className="min-w-72">
                 <MultiSelectInput
                   selection_mode="single"
-                  item_list={cardItems}
+                  item_list={products}
                   label="Seleziona un prodotto"
                 />
               </div>
@@ -151,7 +148,7 @@ const RicercaAnagrafica = () => {
               </div>
             </div>
           </div>
-        )} */}
+        )}
       </div>
     </div>
   );
