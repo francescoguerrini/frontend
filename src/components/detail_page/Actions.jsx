@@ -1,4 +1,3 @@
-import PreviewModal from "./PreviewModal";
 import { Tooltip } from "@nextui-org/react";
 import {
   FiEdit,
@@ -26,11 +25,6 @@ const Actions = () => {
           </button>
         </Tooltip>
       ))}{" "}
-      <Tooltip content="Preview" placement="bottom">
-        <div>
-          <PreviewModal />
-        </div>
-      </Tooltip>
     </div>
   );
 };

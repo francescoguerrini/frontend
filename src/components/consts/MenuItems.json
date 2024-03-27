@@ -12,7 +12,7 @@
     {
         "icon": "FiCopy",
         "text": "Gestione Report",
-        "target": "/dettaglio-pratiche"
+        "target": "/gestione-report"
     },
     {
         "icon": "FaRegFilePdf",
@@ -35,9 +35,19 @@
         "target": "/archivio-operazioni"
     },
     {
+        "icon": "FiCrosshair",
+        "text": "Ricerca Anagrafica",
+        "target": "/ricerca-anagrafica"
+    },
+    {
         "icon": "FiBarChart",
         "text": "Statistiche",
         "target": "/statistiche"
+    },
+    {
+        "icon": "FiEye",
+        "text": "Monitoraggio",
+        "target": "/monitoraggio"
     },
     {
         "icon": "FiCalendar",

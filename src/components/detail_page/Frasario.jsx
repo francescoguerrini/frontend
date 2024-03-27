@@ -1,4 +1,6 @@
 import { FiCopy } from "react-icons/fi";
+import TextArea from "./TextArea";
+import { Tooltip } from "@nextui-org/react";
 
 const Frasario = () => {
   const suggerimenti = [
@@ -10,20 +12,25 @@ const Frasario = () => {
     "Dalle indagini svolte è eStando a quanto appreso, si tratterebbe di posizione chiusa in seguito a criticità.merso che la società risulta censita, senza alcun rapporto in essere, presso l'istituto di credito XXXXXXXXXXXXXXXXXXX.",
   ];
   return (
-    <div className="h-full overflow-auto">
-      <div className="font-semibold">Frasario</div>
-      <div className="flex flex-col gap-1 md:max-h-40 lg:max-h-96">
+    <div className="h-full">
+      <TextArea
+        placeholder="Cerca..."
+        className="max-h-10 border shadow-sm p-[.4rem]"
+      />
+      <div className="flex flex-col gap-1 md:max-h-40 lg:max-h-96 overflow-auto">
         {suggerimenti.map((sugg, index) => (
           <div
             key={index}
             className="border border-slate-300 rounded p-1 bg-slate-100 text-[.7rem] lg:text-tiny flex"
           >
             {sugg}
-            <span className="text-rose-900">
-              <button className="p-[3px] rounded hover:bg-slate-600 hover:text-white">
-                <FiCopy />
-              </button>
-            </span>
+            <Tooltip content="copia negli appunti">
+              <span className="text-rose-900">
+                <button className="p-[3px] rounded" alt="copy">
+                  <FiCopy />
+                </button>
+              </span>
+            </Tooltip>
           </div>
         ))}
       </div>

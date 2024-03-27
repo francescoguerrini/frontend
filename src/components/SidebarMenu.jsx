@@ -11,6 +11,8 @@ import {
   FiBarChart,
   FiList,
   FiZoomIn,
+  FiCrosshair,
+  FiEye,
 } from "react-icons/fi";
 import UserTooltip from "./UserTooltip";
 import ToggleLog from "./ToggleLog";
@@ -28,6 +30,8 @@ const SidebarMenuSm = () => {
     FiList,
     FaRegFileExcel,
     FiZoomIn,
+    FiCrosshair,
+    FiEye,
   };
   const [voiceActiveSm, setVoiceActiveSm] = useState("");
   return (
@@ -35,7 +39,7 @@ const SidebarMenuSm = () => {
       <div className="hover:scale-105 transition-all duration-500">
         <UserTooltip />
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
         {linksData.map((link, index) => {
           const Icon = iconMap[link.icon];
           return (

@@ -4,7 +4,7 @@ import Layout from "./components/Layout";
 import Dashboard from "./pages/BD_Dashboard";
 import ProfiloUtente from "./pages/BD_ProfiloUtente";
 import ListaLavorazioni from "./pages/BD_ListaLavorazioni";
-import DettaglioPratica from "./pages/BD_DettaglioPratica";
+import GestioneReport from "./pages/BD_GestioneReport";
 import DettaglioPraticheMultiple from "./pages/BD_DettaglioPraticheMultiple";
 import PasswordDimenticata from "./pages/BD_PasswordDimenticata";
 import ReimpostaPassword from "./pages/BD_ReimpostaPassword";
@@ -12,7 +12,9 @@ import PasswordAggiornata from "./pages/BD_PasswordAggiornata";
 import ServiziSpeciali from "./pages/BD_ServiziSpeciali";
 import ArchivioOperazioni from "./pages/BD_ArchivioOperazioni";
 import Statistiche from "./pages/BD_Statistiche";
+import Monitoraggio from "./pages/BD_Monitoraggio";
 import RichiestaServizio from "./pages/BD_RichiestaServizio";
+import RicercaAnagrafica from "./pages/BD_RicercaAnagrafica";
 import Calendario from "./pages/Calendario";
 import LoginPage from "./pages/BD_LoginPage";
 import LogoutPage from "./pages/BD_LogoutPage";
@@ -47,10 +49,7 @@ function App() {
                   path="/lista-lavorazioni"
                   element={<ListaLavorazioni />}
                 />
-                <Route
-                  path="/dettaglio-pratiche"
-                  element={<DettaglioPratica />}
-                />
+                <Route path="/gestione-report" element={<GestioneReport />} />
                 <Route
                   path="/multiple"
                   element={<DettaglioPraticheMultiple />}
@@ -60,11 +59,16 @@ function App() {
                   path="/richiesta-servizio"
                   element={<RichiestaServizio />}
                 />
+                <Route
+                  path="/ricerca-anagrafica"
+                  element={<RicercaAnagrafica />}
+                />
                 <Route path="/servizi-speciali" element={<ServiziSpeciali />} />
                 <Route
                   path="/archivio-operazioni"
                   element={<ArchivioOperazioni />}
                 />
+                <Route path="/monitoraggio" element={<Monitoraggio />} />
                 <Route path="/statistiche" element={<Statistiche />} />
               </Routes>
             </>

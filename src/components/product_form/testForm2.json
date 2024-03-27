@@ -1,0 +1,34 @@
+[
+    {
+        "label": "Denominazione",
+        "placeholder": "placeholder",
+        "value": "formData.userFirstName || null",
+        "onChange": "handleChange",
+        "name": "FirstName",
+        "type": "text"
+    },
+    {
+        "label": "CCIAA",
+        "placeholder": "placeholder",
+        "value": "formData.userLastName || null",
+        "onChange": "handleChange",
+        "name": "LastName",
+        "type": "text"
+    },
+    {
+        "label": "Partita Iva",
+        "placeholder": "placeholder",
+        "value": "formData.userLastName || null",
+        "onChange": "handleChange",
+        "name": "LastName",
+        "type": "text"
+    },
+    {
+        "label": "Codice Fiscale",
+        "placeholder": "placeholder",
+        "value": "formData.codiceFiscale || null",
+        "onChange": "handleChange",
+        "name": "CodiceFiscale",
+        "type": "text"
+    }
+]

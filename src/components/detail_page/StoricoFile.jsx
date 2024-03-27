@@ -8,7 +8,7 @@ const StoricoFile = () => {
     "SGRGennaro.docx",
   ];
   return (
-    <div className="p-2 h-full flex flex-col justify-evenly">
+    <div className="p-2 h-[70%] flex flex-col justify-between">
       <div className="title">Storico dei File</div>
       <div className="flex flex-col gap-1">
         {files.map((file, index) => (

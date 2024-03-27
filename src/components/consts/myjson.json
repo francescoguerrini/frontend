@@ -1,0 +1,81 @@
+{
+    "peopleTotalNumber": 0,
+    "companiesTotalNumber": 1,
+    "companies": [
+        {
+            "dati_anagrafici": {
+                "id_soggetto": 361284422,
+                "denominazione": "BD BUSINESS DEFENCE S.R.L.",
+                "codice_fiscale": "07780410960",
+                "partita_iva": "07780410960",
+                "indirizzo": {
+                    "descrizione": "VIA LUDOVICO DI BREME, 44",
+                    "cap": "20156",
+                    "codice_comune": "MI146",
+                    "descrizione_comune": "MILANO",
+                    "codice_comune_istat": "015146",
+                    "provincia": "MI",
+                    "descrizione_provincia": "MILANO"
+                }
+            },
+            "dati_attivita": {
+                "codice_ateco": "82912",
+                "ateco": "Agenzie di informazioni commerciali",
+                "codice_ateco_infocamere": "82912",
+                "ateco_infocamere": "Agenzie di informazioni commerciali",
+                "codice_stato_attivita": "A",
+                "flag_operativa": true,
+                "codice_rea": "MI 1981316",
+                "data_iscrizione_rea": "19-03-2012",
+                "company_form": {
+                    "code": "SR",
+                    "description": "SOCIETA' A RESPONSABILITA' LIMITATA",
+                    "company_form_class": "SC"
+                }
+            },
+            "dati_pa": {
+                "ente": false,
+                "fornitore": false,
+                "partecipata": false
+            }
+        },
+        {
+            "dati_anagrafici": {
+                "id_soggetto": 361284422,
+                "denominazione": "BD BUSINESS DEFENCE S.R.L.",
+                "codice_fiscale": "07780410960",
+                "partita_iva": "07780410960",
+                "indirizzo": {
+                    "descrizione": "VIA LUDOVICO DI BREME, 44",
+                    "cap": "20156",
+                    "codice_comune": "MI146",
+                    "descrizione_comune": "MILANO",
+                    "codice_comune_istat": "015146",
+                    "provincia": "MI",
+                    "descrizione_provincia": "MILANO"
+                }
+            },
+            "dati_attivita": {
+                "codice_ateco": "82912",
+                "ateco": "Agenzie di informazioni commerciali",
+                "codice_ateco_infocamere": "82912",
+                "ateco_infocamere": "Agenzie di informazioni commerciali",
+                "codice_stato_attivita": "A",
+                "flag_operativa": true,
+                "codice_rea": "MI 1981316",
+                "data_iscrizione_rea": "19-03-2012",
+                "company_form": {
+                    "code": "SR",
+                    "description": "SOCIETA' A RESPONSABILITA' LIMITATA",
+                    "company_form_class": "SC"
+                }
+            },
+            "dati_pa": {
+                "ente": false,
+                "fornitore": false,
+                "partecipata": false
+            }
+        }
+    ],
+    "people": []
+}
