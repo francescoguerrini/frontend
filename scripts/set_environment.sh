@@ -1,18 +1,20 @@
 #!/bin/bash
-#Goest to the root directory
-# cd ..
 
-# # Install requirements with pip, ignoring errors
-# pip install -r requirements.txt || true
+# Array of script names
+declare -a arr=("install_node.sh")
 
-# # Install requirements with pipenv, ignoring errors
-# pipenv install || true
-
-echo "Setting up environment variables"
-echo "Creating Virtual Environment"
-echo "Activating Virtual Environment"
-echo "Installing requirements"
-echo "Setting up database"
-echo "Running migrations"
-echo "Starting server"
-echo "Environment setup complete"
+# Loop through the array
+for script in "${arr[@]}"
+do
+    # Check if the script exists in the current directory
+    if [ -f "$script" ]; then
+        echo "Running $script"
+        bash "$script"
+    # Check if the script exists in the scripts/ directory
+    elif [ -f "scripts/$script" ]; then
+        echo "Running scripts/$script"
+        bash "scripts/$script"
+    else
+        echo "Script $script not found"
+    fi
+done
