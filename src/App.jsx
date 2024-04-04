@@ -4,16 +4,16 @@ import Layout from "./components/Layout";
 import Dashboard from "./pages/BD_Dashboard";
 import ProfiloUtente from "./pages/BD_ProfiloUtente";
 import ListaLavorazioni from "./pages/BD_ListaLavorazioni";
-import GestioneReport from "./pages/BD_GestioneReport";
+import GestioneReport2 from "./pages/BD_GestioneReport2";
 import DettaglioPraticheMultiple from "./pages/BD_DettaglioPraticheMultiple";
 import PasswordDimenticata from "./pages/BD_PasswordDimenticata";
 import ReimpostaPassword from "./pages/BD_ReimpostaPassword";
 import PasswordAggiornata from "./pages/BD_PasswordAggiornata";
-import ServiziSpeciali from "./pages/BD_ServiziSpeciali";
+import ServiziSpeciali from "./pages/BD_RichiestaMassivi";
 import ArchivioOperazioni from "./pages/BD_ArchivioOperazioni";
 import Statistiche from "./pages/BD_Statistiche";
 import Monitoraggio from "./pages/BD_Monitoraggio";
-import RichiestaServizio from "./pages/BD_RichiestaServizio";
+import RichiestaServizio from "./pages/BD_RichiestaReport";
 import RicercaAnagrafica from "./pages/BD_RicercaAnagrafica";
 import Calendario from "./pages/Calendario";
 import LoginPage from "./pages/BD_LoginPage";
@@ -28,7 +28,7 @@ function App() {
       <Router>
         <Layout>
           <Routes>
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/" element={<LoginPage />} />
             <Route
               path="/password-dimenticata"
               element={<PasswordDimenticata />}
@@ -43,20 +43,17 @@ function App() {
           {userInfo ? (
             <>
               <Routes>
-                <Route path="/" element={<Dashboard />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/profilo" element={<ProfiloUtente />} />
-                <Route
-                  path="/lista-lavorazioni"
-                  element={<ListaLavorazioni />}
-                />
-                <Route path="/gestione-report" element={<GestioneReport />} />
+                <Route path="/richieste" element={<ListaLavorazioni />} />
+                <Route path="/gestione-report" element={<GestioneReport2 />} />
                 <Route
                   path="/multiple"
                   element={<DettaglioPraticheMultiple />}
                 />
                 <Route path="/calendario" element={<Calendario />} />
                 <Route
-                  path="/richiesta-servizio"
+                  path="/richiesta-report"
                   element={<RichiestaServizio />}
                 />
                 <Route

@@ -32,9 +32,9 @@ const Storico = () => {
     },
   ];
   return (
-    <div className="h-full overflow-auto">
-      <div className="font-semibold pb-3">Storico/log</div>
-      <div className="flex flex-col gap-1 md:max-h-40 lg:max-h-96">
+    <div className="h-full flex flex-col overflow-auto bg-seventh">
+      <div className="report-title">Storico/log</div>
+      <div className="flex flex-col gap-1 md:max-h-40 lg:max-h-80">
         {messaggi.map((mex, index) => (
           <div key={index} className="rounded p-1  flex text-sm border-b">
             <div className="evento-[.6rem] p-1 flex flex-col justify-between">

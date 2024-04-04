@@ -16,7 +16,7 @@ import {
 } from "react-icons/fi";
 import UserTooltip from "./UserTooltip";
 import ToggleLog from "./ToggleLog";
-import linksData from "./consts/MenuItems.json";
+import menuItems from "./consts/MenuItems.json";
 
 const SidebarMenuSm = () => {
   const iconMap = {
@@ -40,34 +40,47 @@ const SidebarMenuSm = () => {
         <UserTooltip />
       </div>
       <div className="flex flex-col gap-2">
-        {linksData.map((link, index) => {
+        {menuItems.map((link, index) => {
           const Icon = iconMap[link.icon];
           return (
-            <button
-              key={index}
-              onClick={() => setVoiceActiveSm(link.target)}
-              className="lg:w-36"
-            >
+            <div key={index} className="lg:w-36">
               <Tooltip
                 content={link.text}
                 placement="right"
                 className="bg-seventh text-[#0b1a2e] lg:hidden"
               >
-                <Link
-                  to={link.target}
-                  className={`flex items-center justify-center lg:justify-start lg:pl-2 bg-[#efefef] rounded-lg text-slate-900 p-1 lg:p-0 hover:scale-110 lg:hover:scale-105 transition-all duration-500 ${
-                    voiceActiveSm === link.target
-                      ? "bg-sky-200 shadow-lg scale-110 lg:scale-100 hover:scale-125 lg:hover:scale-100"
-                      : ""
-                  }`}
-                >
-                  {Icon && <Icon className="" />}
-                  <span className="hidden lg:flex lg:text-[.7rem] lg:pl-2">
-                    {link.text}
-                  </span>
-                </Link>
+                {link.disabled ? (
+                  <div
+                    className={`flex items-center justify-center lg:justify-start lg:pl-2 bg-[#efefef] rounded-lg text-gray-400 p-1 lg:p-0 hover:scale-110 lg:hover:scale-105 transition-all duration-500`}
+                    style={{ cursor: "not-allowed" }}
+                  >
+                    {Icon && <Icon className="" />}
+                    <span className="hidden lg:flex lg:text-[.7rem] lg:pl-2">
+                      {link.text}
+                    </span>
+                  </div>
+                ) : (
+                  <Link
+                    to={link.target}
+                    className={`flex items-center justify-center lg:justify-start lg:pl-2 bg-[#efefef] rounded-lg text-slate-900 p-1 lg:p-0 hover:scale-110 lg:hover:scale-105 transition-all duration-500 ${
+                      voiceActiveSm === link.target
+                        ? "bg-sky-200 shadow-lg scale-110 lg:scale-100 hover:scale-125 lg:hover:scale-100"
+                        : ""
+                    }`}
+                    onClick={() => {
+                      if (!link.disabled) {
+                        setVoiceActiveSm(link.target);
+                      }
+                    }}
+                  >
+                    {Icon && <Icon className="" />}
+                    <span className="hidden lg:flex lg:text-[.7rem] lg:pl-2">
+                      {link.text}
+                    </span>
+                  </Link>
+                )}
               </Tooltip>
-            </button>
+            </div>
           );
         })}
         <div>
