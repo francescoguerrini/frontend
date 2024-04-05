@@ -17,6 +17,7 @@ const FilterSelector = ({ onFilterChange }) => {
 
   return (
     <div className="w-full flex items-center gap-1">
+      Criterio di ricerca
       {options.map((option, index) => (
         <button
           key={index}
