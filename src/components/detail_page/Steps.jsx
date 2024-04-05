@@ -14,7 +14,7 @@ const Stepper = () => {
   const [completed, setCompleted] = useState(false);
 
   return (
-    <div className="h-full flex flex-col bg-seventh xl:flex-col items-center text-slate-600 rounded-md p-1 pt-3">
+    <div className="h-full flex flex-col bg-seventh xl:flex-col items-center text-slate-600 rounded-md p-1 pt-[1rem]">
       <div className="h-[90%] overflow-auto">
         {events.map((event, i) => (
           <div key={i} className={`flex flex-col items-center text-slate-500 `}>
@@ -24,7 +24,7 @@ const Stepper = () => {
                   currentStep === i + 1 && "bg-sky-600 text-white"
                 } ${
                   (i + 1 < currentStep || completed) &&
-                  "bg-green-600 text-white text-[.7rem]"
+                  "bg-emerald-600 text-white text-[.7rem]"
                 } `}
               >
                 {i + 1}
@@ -61,8 +61,8 @@ const Stepper = () => {
         </button>
         <button
           disabled={completed}
-          className={`bg-emerald-700 text-white rounded py-1 px-2 border border-emerald-700 ${
-            !completed ? "hover:bg-white hover:text-emerald-700" : ""
+          className={`bg-emerald-600 text-white rounded py-1 px-2 border border-emerald-600 ${
+            !completed ? "hover:bg-white hover:text-emerald-600" : ""
           } transition-all duration-300`}
           onClick={() => {
             currentStep === events.length

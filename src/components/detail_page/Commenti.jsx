@@ -37,7 +37,7 @@ const Commenti = () => {
     },
   ];
   return (
-    <div className="h-full overflow-auto bg-seventh flex flex-col  justify-between ">
+    <div className="h-full overflow-auto bg-seventh flex flex-col justify-between ">
       <div className="report-title">Note</div>
       <div className="flex flex-col lg:max-h-96">
         {messaggi.map((mex, index) => (
@@ -68,7 +68,7 @@ const Commenti = () => {
           className="border p-[.2rem]"
         />
         <div className="">
-          <button className="bg-rose-700 text-[.5rem] text-white rounded p-[.2rem]">
+          <button className="bg-rose-700 text-tiny text-white rounded p-[.2rem]">
             Aggiungi Nota
           </button>
         </div>

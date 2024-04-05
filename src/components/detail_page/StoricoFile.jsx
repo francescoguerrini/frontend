@@ -1,4 +1,4 @@
-import { FiDownload } from "react-icons/fi";
+import { FiDownload, FiUpload } from "react-icons/fi";
 
 const StoricoFile = () => {
   const files = [
@@ -23,15 +23,15 @@ const StoricoFile = () => {
           </div>
         ))}
       </div>
-      <div className="flex flex-col lg:flex-row gap-1 text-sm p-1">
-        <button className="bg-rose-600 text-white p-1 rounded max-w-20">
-          BOTTONE
+      <div className="flex lg:flex-row gap-1 md:gap-2 text-tiny p-1 w-full">
+        <button className="bg-rose-700 text-white p-1 rounded w-1/3 flex flex-col md:flex-row gap-2 items-center justify-center">
+          <FiDownload /> Primo
         </button>
-        <button className="bg-rose-600 text-white p-1 rounded max-w-20">
-          BOTTONE
+        <button className="bg-rose-700 text-white p-1 rounded w-1/3 flex flex-col md:flex-row gap-2 items-center justify-center">
+          <FiDownload /> Ultimo
         </button>
-        <button className="bg-rose-600 text-white p-1 rounded max-w-20">
-          BOTTONE
+        <button className="bg-rose-700 text-white p-1 rounded w-1/3 flex flex-col md:flex-row gap-2 items-center justify-center">
+          <FiUpload /> Upload
         </button>
       </div>
     </div>

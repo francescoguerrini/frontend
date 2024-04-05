@@ -32,18 +32,24 @@ const Storico = () => {
     },
   ];
   return (
-    <div className="h-full flex flex-col overflow-auto bg-seventh">
-      <div className="report-title">Storico/log</div>
-      <div className="flex flex-col gap-1 md:max-h-40 lg:max-h-80">
+    <div className="h-full flex flex-col overflow-auto bg-seventh px-1">
+      <div className="hidden report-title xl:flex">Storico/log</div>
+      <div className="h-full flex flex-col xl:justify-center">
         {messaggi.map((mex, index) => (
-          <div key={index} className="rounded p-1  flex text-sm border-b">
-            <div className="evento-[.6rem] p-1 flex flex-col justify-between">
+          <div
+            key={index}
+            className={`rounded px-[.2rem] flex text-sm border-b ${
+              index % 2 === 0 ? "bg-sky-100" : ""
+            }`}
+          >
+            <div className="flex flex-col justify-between">
               <div className="text-[.6rem]">
-                {mex.data} <span>{mex.ora}</span>
+                <span className="text-slate-700">
+                  {mex.data} {mex.ora}
+                </span>
+                <span className="font-bold"> {mex.autore} : </span>
               </div>
-              <div className="text-[.6rem]">
-                <span className="font-bold">{mex.autore} : </span> {mex.evento}
-              </div>
+              <div className="text-[.6rem]">{mex.evento}</div>
             </div>
           </div>
         ))}
