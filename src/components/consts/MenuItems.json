@@ -2,56 +2,67 @@
     {
         "icon": "FiHome",
         "text": "Dashboard",
-        "target": "/"
+        "target": "/dashboard",
+        "disabled": false
     },
     {
         "icon": "FiList",
         "text": "Richieste",
-        "target": "/lista-lavorazioni"
+        "target": "/richieste",
+        "disabled": false
     },
     {
         "icon": "FiCopy",
         "text": "Gestione Report",
-        "target": "/gestione-report"
+        "target": "/gestione-report",
+        "disabled": false
     },
     {
         "icon": "FaRegFilePdf",
         "text": "Richiesta Report",
-        "target": "/richiesta-servizio"
+        "target": "/richiesta-report",
+        "disabled": false
     },
     {
         "icon": "FiGrid",
         "text": "Gestione Massivi",
-        "target": "/multiple"
+        "target": "/multiple",
+        "disabled": true
     },
     {
         "icon": "FaRegFileExcel",
         "text": "Richiesta Massivi",
-        "target": "/servizi-speciali"
+        "target": "/servizi-speciali",
+        "disabled": false
     },
     {
         "icon": "FiZoomIn",
         "text": "Archivio Operazioni",
-        "target": "/archivio-operazioni"
+        "target": "/archivio-operazioni",
+        "disabled": false
     },
     {
         "icon": "FiCrosshair",
         "text": "Ricerca Anagrafica",
-        "target": "/ricerca-anagrafica"
+        "target": "/ricerca-anagrafica",
+        "disabled": false
     },
     {
         "icon": "FiBarChart",
         "text": "Statistiche",
-        "target": "/statistiche"
+        "target": "/statistiche",
+        "disabled": true
     },
     {
         "icon": "FiEye",
         "text": "Monitoraggio",
-        "target": "/monitoraggio"
+        "target": "/monitoraggio",
+        "disabled": true
     },
     {
         "icon": "FiCalendar",
         "text": "Calendar",
-        "target": "/calendario"
+        "target": "/calendario",
+        "disabled": true
     }
 ]

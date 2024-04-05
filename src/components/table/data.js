@@ -67,7 +67,7 @@ const users = [
     status: "InLavorazione",
     age: "25",
     avatar: susanna,
-    email: "BD LIGHT PLUS 2.0",
+    email: "BD test PLUS 2.0",
     data_richiesta: "16/02/24",
     data_scadenza: "29/02/24",
     data_evasione: "",

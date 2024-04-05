@@ -17,6 +17,7 @@
 body {
 background-color: var(--fifth-color);
 color: var(--sixth-color);
+max-height: 1000px;
 }
 .text-first{
     color: var(--primary-color);
@@ -69,6 +70,12 @@ background-color: var(--seventh-color);
 .title{
   font-size: 1.1rem;
   margin-bottom: .7rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+}
+.report-title{
+  font-size: 1rem;
+  padding:1rem;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
 }

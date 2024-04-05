@@ -27,6 +27,7 @@ import {
 } from "./data";
 import { capitalize } from "./utils";
 import TableModal from "../TableModal";
+import FilterSelector from "./FilterSelector";
 
 export default function ListaOperazioni() {
   const [filterValue, setFilterValue] = useState("");
@@ -35,6 +36,7 @@ export default function ListaOperazioni() {
     new Set(INITIAL_VISIBLE_COLUMNS)
   );
   const [statusFilter, setStatusFilter] = useState("all");
+  const [selectedFilter, setSelectedFilter] = useState("name");
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [sortDescriptor, setSortDescriptor] = useState({
     column: "age",
@@ -45,6 +47,10 @@ export default function ListaOperazioni() {
   const pages = Math.ceil(users.length / rowsPerPage);
 
   const hasSearchFilter = Boolean(filterValue);
+
+  const handleFilterChange = useCallback((filter) => {
+    setSelectedFilter(filter);
+  }, []);
 
   // _________________HEADER_COLUMNS_________________
 
@@ -63,7 +69,7 @@ export default function ListaOperazioni() {
 
     if (hasSearchFilter) {
       filteredUsers = filteredUsers.filter((user) =>
-        user.name.toLowerCase().includes(filterValue.toLowerCase())
+        user[selectedFilter].toLowerCase().includes(filterValue.toLowerCase())
       );
     }
     if (
@@ -227,7 +233,7 @@ export default function ListaOperazioni() {
               base: "w-full sm:max-w-[44%]",
               inputWrapper: "border-1 h-2",
             }}
-            placeholder="Cerca..."
+            placeholder="...cerca"
             size="sm"
             startContent={<FiSearch className="text-default-300" />}
             value={filterValue}
@@ -316,7 +322,7 @@ export default function ListaOperazioni() {
         </div>
         <div className="flex justify-between items-center">
           <span className="text-default-400 text-small">
-            {users.length} risultati totali
+            <FilterSelector onFilterChange={handleFilterChange} />
           </span>
           <label className="flex items-center text-default-400 text-small">
             Righe per pagina:

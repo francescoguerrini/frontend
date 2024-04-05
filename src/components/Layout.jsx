@@ -7,6 +7,7 @@ const Layout = ({ children }) => {
 
   // Controlla se il percorso corrente corrisponde a una delle pagine che richiedono la sidebar nascosta
   const hideSidebarPages = [
+    "/",
     "/login/",
     "/password-dimenticata",
     "/password-aggiornata",

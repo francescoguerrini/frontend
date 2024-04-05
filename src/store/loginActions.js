@@ -14,7 +14,8 @@ export const login = (username, password) => async (dispatch) => {
     // const config = {
     //   headers: { "constent-type": "application/json" },
     // };
-    const { data } = await axios.post("http://127.0.0.1:8000/api/token/", {
+    // "http://127.0.0.1:8000/api/token/"
+    const { data } = await axios.post("http://192.168.1.158:8000/api/token/", {
       username: username,
       password: password,
     });

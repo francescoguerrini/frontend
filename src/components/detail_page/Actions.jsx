@@ -6,6 +6,7 @@ import {
   FiUploadCloud,
   FiDownloadCloud,
 } from "react-icons/fi";
+import RichiesteCollegate from "./RichiesteCollegate";
 
 const Actions = () => {
   const buttons = [
@@ -17,14 +18,30 @@ const Actions = () => {
   ];
 
   return (
-    <div className="w-full h-full flex justify-evenly items-center bg-seventh rounded-md py-1">
-      {buttons.map((Icon, index) => (
-        <Tooltip content={Icon.text} key={index} placement="bottom">
-          <button className="text-white bg-sky-600 rounded-lg p-[5px] lg:p-[10px] hover:scale-105 transition-all duration-300">
-            <Icon.icon />
-          </button>
-        </Tooltip>
-      ))}{" "}
+    <div className="p-3 h-full bg-seventh flex xl:flex-col xl:justify-evenly">
+      <div className="hidden xl:flex xl:h-1/3 xl:border-b">
+        <RichiesteCollegate />
+      </div>
+
+      <div className="h-full w-full flex bg-seventh rounded-md gap-6 items-center justify-center lg:flex-col xl:items-start">
+        {buttons.map((Icon, index) => (
+          <div
+            key={index}
+            className="xl:flex xl:gap-3 xl:items-center xl:border"
+          >
+            <Tooltip
+              content={Icon.text}
+              placement="right"
+              className="xl:hidden"
+            >
+              <button className="text-white bg-sky-600 rounded-lg p-[5px] md:p-[10px] hover:scale-105 transition-all duration-300">
+                <Icon.icon />
+              </button>
+            </Tooltip>
+            <span className="text-sm hidden xl:flex">{Icon.text}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

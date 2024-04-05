@@ -14,7 +14,7 @@ const UserTooltip = () => {
           color="#f5f5f5"
           offset={7}
         >
-          <Link href="/profilo">
+          <Link href="/profilo" isDisabled="true">
             <Avatar
               src={userInfo?.username ? rafael : ""}
               size="lg"

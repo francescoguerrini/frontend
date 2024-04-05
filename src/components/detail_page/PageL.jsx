@@ -4,7 +4,7 @@ import StoricoFile from "./StoricoFile";
 
 const PageL = () => {
   return (
-    <div className="h-full w-full flex flex-row gap-1">
+    <div className="h-full w-full flex flex-row-reverse gap-1">
       <div className="flex-grow flex flex-col gap-2">
         <div className="h-1/3 bg-seventh rounded-md">
           <DettagliPratica />

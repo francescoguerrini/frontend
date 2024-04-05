@@ -37,42 +37,40 @@ const Commenti = () => {
     },
   ];
   return (
-    <div className="h-full overflow-auto">
-      <div className="font-semibold pb-3">Note</div>
-      <div className="flex flex-col md:max-h-40 lg:max-h-96">
-        <div>
-          {messaggi.map((mex, index) => (
-            <div
-              key={index}
-              className="border border-slate-300 rounded p-1 bg-slate-100 flex"
-            >
-              <div className="flex flex-col justify-between pb-[.2rem] border-r">
-                <div>
-                  <Avatar size="sm" src={mex.autore} />
-                </div>
-              </div>
-              <div className="text-[.6rem] p-1 flex flex-col justify-between">
-                <div>
-                  {mex.data} <span className="font-bold">{mex.ora}</span>
-                </div>
-                <div>{mex.text}</div>
+    <div className="h-full overflow-auto bg-seventh flex flex-col justify-between ">
+      <div className="report-title">Note</div>
+      <div className="flex flex-col lg:max-h-96">
+        {messaggi.map((mex, index) => (
+          <div
+            key={index}
+            className="border border-slate-300 rounded p-1 bg-slate-100 flex"
+          >
+            <div className="flex flex-col justify-between pb-[.2rem] border-r">
+              <div>
+                <Avatar size="sm" src={mex.autore} />
               </div>
             </div>
-          ))}
-        </div>
-        <div className="h-full my-1 flex flex-col items-end justify-end">
-          <TextArea
-            id="1"
-            placeholder="Rispondi"
-            value=""
-            onChange=""
-            className="border p-[.2rem]"
-          />
-          <div className="">
-            <button className="bg-rose-700 text-[.5rem] text-white rounded p-[.2rem]">
-              Aggiungi Nota
-            </button>
+            <div className="text-[.6rem] p-1 flex flex-col justify-between">
+              <div>
+                {mex.data} <span className="font-bold">{mex.ora}</span>
+              </div>
+              <div>{mex.text}</div>
+            </div>
           </div>
+        ))}
+      </div>
+      <div className="my-1 flex flex-col items-end justify-end">
+        <TextArea
+          id="1"
+          placeholder="Rispondi"
+          value=""
+          onChange=""
+          className="border p-[.2rem]"
+        />
+        <div className="">
+          <button className="bg-rose-700 text-tiny text-white rounded p-[.2rem]">
+            Aggiungi Nota
+          </button>
         </div>
       </div>
     </div>

@@ -15,9 +15,6 @@ const SSpeciali = () => {
 
   return (
     <div className="h-full w-full flex flex-col items-center text-[.5rem] lg:text-tiny">
-      <div className="bg-black/5 p-2 rounded-md title shadow-md w-full text-slate-900">
-        Servizi Speciali
-      </div>
       <div className="flex flex-col h-full w-full items-center justify-center">
         <div className="w-full flex justify-start lg:w-full my-3">
           <SelectWithSearch

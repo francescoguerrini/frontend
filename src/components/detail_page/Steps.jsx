@@ -10,12 +10,12 @@ const Stepper = () => {
     "Verifica Manuale",
     "Evasione",
   ];
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(6);
   const [completed, setCompleted] = useState(false);
 
   return (
-    <div className="h-full w-full flex flex-col bg-seventh justify-evenly items-center md:items-start text-slate-600 overflow-auto lg:pl-4 p-[2px] rounded-md">
-      <div className="mt-40 md:mt-2">
+    <div className="h-full flex flex-col bg-seventh xl:flex-col items-center text-slate-600 rounded-md p-1 pt-[1rem]">
+      <div className="h-[90%] overflow-auto">
         {events.map((event, i) => (
           <div key={i} className={`flex flex-col items-center text-slate-500 `}>
             <div className="flex gap-1 items-center">
@@ -24,7 +24,7 @@ const Stepper = () => {
                   currentStep === i + 1 && "bg-sky-600 text-white"
                 } ${
                   (i + 1 < currentStep || completed) &&
-                  "bg-green-600 text-white text-[.7rem]"
+                  "bg-emerald-600 text-white text-[.7rem]"
                 } `}
               >
                 {i + 1}
@@ -45,7 +45,7 @@ const Stepper = () => {
           </div>
         ))}
       </div>
-      <div className="w-full text-tiny flex md:flex-col-reverse lg:flex-row gap-1 md:gap-2 items-center md:items-end md:pr-2 justify-evenly my-4 md:my-1 md:mt-0">
+      <div className="w-full h-[10%] text-tiny flex items-center justify-evenly">
         <button
           className={` ${
             completed
@@ -61,8 +61,8 @@ const Stepper = () => {
         </button>
         <button
           disabled={completed}
-          className={`bg-emerald-700 text-white rounded py-1 px-2 border border-emerald-700 ${
-            !completed ? "hover:bg-white hover:text-emerald-700" : ""
+          className={`bg-emerald-600 text-white rounded py-1 px-2 border border-emerald-600 ${
+            !completed ? "hover:bg-white hover:text-emerald-600" : ""
           } transition-all duration-300`}
           onClick={() => {
             currentStep === events.length

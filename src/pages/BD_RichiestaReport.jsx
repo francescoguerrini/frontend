@@ -5,7 +5,7 @@ import PageTitle from "../components/PageTitle";
 const Form = () => {
   return (
     <div className="containerl h-full flex flex-col gap-2">
-      <PageTitle title="Richiesta Servizio" />
+      <PageTitle title="Richiesta Report" />
       <div className="bg-seventh rounded-md h-1/3 w-full flex gap-4 p-3">
         <div className="flex-grow flex flex-col gap-2 border-r">
           <div className="text-[.6rem]">
