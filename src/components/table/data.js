@@ -10,12 +10,17 @@ const statusColorMap = {
   InScadenza: "danger",
 };
 
+const actions = [
+  { name: "mangia", value: "001" },
+  { name: "prega", value: "002" },
+  { name: "ama", value: "003" },
+];
+
 const INITIAL_VISIBLE_COLUMNS = [
   "id",
   "email",
   "name",
   "status",
-  "data_richiesta",
   "data_scadenza",
   "actions",
 ];
@@ -258,6 +263,7 @@ const users = [
 ];
 
 export {
+  actions,
   users,
   columns,
   statusOptions,

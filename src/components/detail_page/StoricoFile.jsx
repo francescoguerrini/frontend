@@ -23,14 +23,14 @@ const StoricoFile = () => {
           </div>
         ))}
       </div>
-      <div className="flex lg:flex-row gap-1 md:gap-2 text-tiny p-1 w-full">
-        <button className="bg-rose-700 text-white p-1 rounded w-1/3 flex flex-col md:flex-row gap-2 items-center justify-center">
+      <div className="flex items-center justify-center p-2 gap-1 md:gap-2 text-tiny w-full h-1/5">
+        <button className="bg-sky-200 p-1 rounded w-1/3 flex flex-col md:flex-row gap-2 items-center justify-center hover:bg-sky-700 hover:text-white transition-all duration-250">
           <FiDownload /> Primo
         </button>
-        <button className="bg-rose-700 text-white p-1 rounded w-1/3 flex flex-col md:flex-row gap-2 items-center justify-center">
+        <button className="bg-sky-200 p-1 rounded w-1/3 flex flex-col md:flex-row gap-2 items-center justify-center hover:bg-sky-700 hover:text-white transition-all duration-250">
           <FiDownload /> Ultimo
         </button>
-        <button className="bg-rose-700 text-white p-1 rounded w-1/3 flex flex-col md:flex-row gap-2 items-center justify-center">
+        <button className="bg-sky-200 p-1 rounded w-1/3 flex flex-col md:flex-row gap-2 items-center justify-center hover:bg-sky-700 hover:text-white transition-all duration-250">
           <FiUpload /> Upload
         </button>
       </div>
