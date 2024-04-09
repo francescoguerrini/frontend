@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback } from "react";
+import { Link } from "react-router-dom";
 import {
   Tooltip,
   Table,
@@ -17,16 +18,17 @@ import {
   User,
   Pagination,
 } from "@nextui-org/react";
-import { FiSearch, FiChevronDown, FiRepeat } from "react-icons/fi";
+import { FiSearch, FiChevronDown, FiEye } from "react-icons/fi";
+import RiassegnazioneModal from "../RiassegnazioneModal";
+import TableActions from "./TableActions";
 import {
   columns,
-  users,
+  pratiche,
   statusOptions,
   statusColorMap,
   INITIAL_VISIBLE_COLUMNS,
 } from "./data";
 import { capitalize } from "./utils";
-import TableModal from "../TableModal";
 import FilterSelector from "./FilterSelector";
 
 export default function ListaOperazioni() {
@@ -36,7 +38,7 @@ export default function ListaOperazioni() {
     new Set(INITIAL_VISIBLE_COLUMNS)
   );
   const [statusFilter, setStatusFilter] = useState("all");
-  const [selectedFilter, setSelectedFilter] = useState("name");
+  const [selectedFilter, setSelectedFilter] = useState("");
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [sortDescriptor, setSortDescriptor] = useState({
     column: "age",
@@ -44,13 +46,18 @@ export default function ListaOperazioni() {
   });
   const [page, setPage] = useState(1);
 
-  const pages = Math.ceil(users.length / rowsPerPage);
+  const pages = Math.ceil(pratiche.length / rowsPerPage);
 
   const hasSearchFilter = Boolean(filterValue);
 
   const handleFilterChange = useCallback((filter) => {
     setSelectedFilter(filter);
   }, []);
+
+  const handleCellAction = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+  };
 
   // _________________HEADER_COLUMNS_________________
 
@@ -65,25 +72,72 @@ export default function ListaOperazioni() {
   // _________________FILTERED_ITEMS_________________
 
   const filteredItems = useMemo(() => {
-    let filteredUsers = [...users];
+    let filteredpratiche = [...pratiche];
 
     if (hasSearchFilter) {
-      filteredUsers = filteredUsers.filter((user) =>
-        user[selectedFilter].toLowerCase().includes(filterValue.toLowerCase())
-      );
-    }
-    if (
-      statusFilter !== "all" &&
-      Array.from(statusFilter).length !== statusOptions.length
-    ) {
-      filteredUsers = filteredUsers.filter((user) =>
-        Array.from(statusFilter).includes(user.status)
-      );
+      if (selectedFilter === "all" || selectedFilter === "") {
+        filteredpratiche = filteredpratiche.filter((pratica) =>
+          Object.values(pratica).some(
+            (fieldValue) =>
+              typeof fieldValue === "string" &&
+              fieldValue.toLowerCase().includes(filterValue.toLowerCase())
+          )
+        );
+      } else {
+        filteredpratiche = filteredpratiche.filter((pratica) =>
+          pratica[selectedFilter]
+            .toLowerCase()
+            .includes(filterValue.toLowerCase())
+        );
+      }
     }
 
-    return filteredUsers;
+    return filteredpratiche;
   }, [filterValue, statusFilter, hasSearchFilter]);
 
+  // const filteredItems = useMemo(() => {
+  //   let filteredpratiche = [...pratiche];
+
+  //   const isAnyFilterActive =
+  //     hasSearchFilter ||
+  //     (statusFilter !== "all" &&
+  //       Array.from(statusFilter).length !== statusOptions.length);
+
+  //   if (isAnyFilterActive) {
+  //     if (hasSearchFilter) {
+  //       filteredpratiche = filteredpratiche.filter((user) =>
+  //         user[selectedFilter].toLowerCase().includes(filterValue.toLowerCase())
+  //       );
+  //     }
+
+  //     if (
+  //       statusFilter !== "all" &&
+  //       Array.from(statusFilter).length !== statusOptions.length
+  //     ) {
+  //       filteredpratiche = filteredpratiche.filter((user) =>
+  //         Array.from(statusFilter).includes(user.status)
+  //       );
+  //     }
+  //   } else {
+  //     // Nessun filtro attivo, quindi la ricerca è valida per tutti i campi
+  //     if (selectedFilter === "") {
+  //       filteredpratiche = filteredpratiche.filter((user) =>
+  //         Object.values(user).some(
+  //           (value) =>
+  //             typeof value === "string" &&
+  //             value.toLowerCase().includes(filterValue.toLowerCase())
+  //         )
+  //       );
+  //     } else {
+  //       // Cicla solo sul campo selezionato se il filtro non è vuoto
+  //       filteredpratiche = filteredpratiche.filter((user) =>
+  //         user[selectedFilter].toLowerCase().includes(filterValue.toLowerCase())
+  //       );
+  //     }
+  //   }
+
+  //   return filteredpratiche; // Ritorna l'array degli utenti filtrati
+  // }, [filterValue, statusFilter, hasSearchFilter, selectedFilter]);
   // _________________ITEMS_________________
 
   const items = useMemo(() => {
@@ -105,20 +159,20 @@ export default function ListaOperazioni() {
 
   // _________________RENDER_CELL_________________
 
-  const renderCell = useCallback((user, columnKey) => {
-    const cellValue = user[columnKey];
+  const renderCell = useCallback((pratica, columnKey) => {
+    const cellValue = pratica[columnKey];
 
     switch (columnKey) {
       case "name":
         return (
           <User
-            avatarProps={{ radius: "full", size: "sm", src: user.avatar }}
+            avatarProps={{ radius: "full", size: "sm", src: pratica.avatar }}
             classNames={{
               description: "text-default-500",
             }}
             name={cellValue}
           >
-            {user.email}
+            {pratica.email}
           </User>
         );
       case "role":
@@ -126,7 +180,7 @@ export default function ListaOperazioni() {
           <div className="flex flex-col">
             <p className="text-bold text-small capitalize">{cellValue}</p>
             <p className="text-bold text-tiny capitalize text-default-500">
-              {user.age}
+              {pratica.age}
             </p>
           </div>
         );
@@ -138,7 +192,7 @@ export default function ListaOperazioni() {
               content={
                 <div>
                   <p className="text-bold text-small capitalize">
-                    aim_id: {user.age}
+                    aim_id: {pratica.age}
                   </p>
                   <p className="text-bold text-small capitalize">
                     id_remoto: 123
@@ -171,29 +225,22 @@ export default function ListaOperazioni() {
         return (
           <Chip
             className="capitalize border-none gap-1 text-default-600"
-            color={statusColorMap[user.status]}
+            color={statusColorMap[pratica.status]}
             size="sm"
             variant="dot"
-          >
-            {cellValue}
-          </Chip>
+          ></Chip>
         );
       case "actions":
         return (
           <div className="relative flex items-center gap-2">
             <Tooltip content="Dettagli">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-5">
-                <TableModal />
-              </span>
+              <Link to="/gestione-report">
+                <FiEye />
+              </Link>
             </Tooltip>
-            {/* <Tooltip color="success" content="Riassegna">
-              <span className="text-lg text-success cursor-pointer active:opacity-50">
-                
-              </span>
-            </Tooltip> */}
             <Tooltip color="danger" content="Riassegna">
-              <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                <FiRepeat />
+              <span className="text-lg text-default-400 cursor-pointer active:opacity-5">
+                <RiassegnazioneModal title="Riassegnazione Richiesta" />
               </span>
             </Tooltip>
           </div>
@@ -241,7 +288,10 @@ export default function ListaOperazioni() {
             onClear={() => setFilterValue("")}
             onValueChange={onSearchChange}
           />
-          <div className="flex gap-2">
+          <div>
+            <TableActions />
+          </div>
+          <div className="flex gap-2 mr-2">
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
                 <Button
@@ -270,37 +320,12 @@ export default function ListaOperazioni() {
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
                 <Button
-                  endContent={<FiChevronDown className="text-small" />}
-                  size="sm"
-                  variant="flat"
-                >
-                  Campi
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu
-                disallowEmptySelection
-                aria-label="Table Columns"
-                closeOnSelect={false}
-                selectedKeys={visibleColumns}
-                selectionMode="multiple"
-                onSelectionChange={setVisibleColumns}
-              >
-                {columns.map((column) => (
-                  <DropdownItem key={column.uid} className="capitalize">
-                    {capitalize(column.name)}
-                  </DropdownItem>
-                ))}
-              </DropdownMenu>
-            </Dropdown>
-            <Dropdown>
-              <DropdownTrigger className="hidden sm:flex">
-                <Button
                   className="bg-foreground text-background"
                   endContent={<FiChevronDown className="text-small" />}
                   size="sm"
                   variant="flat"
                 >
-                  Azioni
+                  Campi
                 </Button>
               </DropdownTrigger>
               <DropdownMenu
@@ -399,6 +424,7 @@ export default function ListaOperazioni() {
         className="bg-white px-3 py-4 rounded-md"
         isCompact
         removeWrapper
+        onCellAction={handleCellAction}
         aria-label="Example table with custom cells, pagination and sorting"
         bottomContent={bottomContent}
         bottomContentPlacement="outside"
@@ -428,7 +454,7 @@ export default function ListaOperazioni() {
             </TableColumn>
           )}
         </TableHeader>
-        <TableBody emptyContent={"No users found"} items={sortedItems}>
+        <TableBody emptyContent={"No pratiche found"} items={sortedItems}>
           {(item) => (
             <TableRow key={item.id} className="border-b ">
               {(columnKey) => (

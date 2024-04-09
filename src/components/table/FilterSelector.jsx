@@ -2,17 +2,17 @@ import { useState } from "react";
 
 const FilterSelector = ({ onFilterChange }) => {
   const options = [
+    { label: "all", value: "Tutti" },
     { label: "name", value: "Operatore" },
     { label: "team", value: "Responsabile" },
     { label: "role", value: "Cliente" },
     { label: "email", value: "Nome" },
   ];
-  const [active, setActive] = useState("name");
+  const [active, setActive] = useState("");
 
   const handleFilterOption = (label) => {
     setActive(label);
     onFilterChange(label);
-    console.log("click", label);
   };
 
   return (

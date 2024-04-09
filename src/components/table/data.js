@@ -10,12 +10,17 @@ const statusColorMap = {
   InScadenza: "danger",
 };
 
+const actions = [
+  { name: "mangia", value: "001" },
+  { name: "prega", value: "002" },
+  { name: "ama", value: "003" },
+];
+
 const INITIAL_VISIBLE_COLUMNS = [
   "id",
   "email",
   "name",
   "status",
-  "data_richiesta",
   "data_scadenza",
   "actions",
 ];
@@ -44,9 +49,9 @@ const statusOptions = [
   { name: "InScadenza", uid: "InScadenza" },
 ];
 
-const users = [
+const pratiche = [
   {
-    id: 61,
+    id: "61",
     name: "Augusto P",
     role: "Axactor",
     team: "Deborah R",
@@ -60,7 +65,7 @@ const users = [
     formato_evasione: "xls",
   },
   {
-    id: 72,
+    id: "72",
     name: "Susanna D",
     role: "Ccollection",
     team: "Chiara C",
@@ -74,7 +79,7 @@ const users = [
     formato_evasione: "xls",
   },
   {
-    id: 83,
+    id: "83",
     name: "Chiara C",
     role: "Axactor",
     team: "Chiara C",
@@ -88,7 +93,7 @@ const users = [
     formato_evasione: "xls",
   },
   {
-    id: 94,
+    id: "94",
     name: "Giulia E",
     role: "Ares",
     team: "Deborah R",
@@ -102,7 +107,7 @@ const users = [
     formato_evasione: "xls",
   },
   {
-    id: 105,
+    id: "105",
     name: "Deborah R",
     role: "Axactor",
     team: "Deborah R",
@@ -116,7 +121,7 @@ const users = [
     formato_evasione: "xls",
   },
   {
-    id: 111,
+    id: "111",
     name: "Augusto P",
     role: "Axactor",
     team: "Deborah R",
@@ -130,7 +135,7 @@ const users = [
     formato_evasione: "xls",
   },
   {
-    id: 12,
+    id: "12",
     name: "Susanna D",
     role: "Ccollection",
     team: "Chiara C",
@@ -144,7 +149,7 @@ const users = [
     formato_evasione: "xls",
   },
   {
-    id: 31,
+    id: "31",
     name: "Chiara C",
     role: "Axactor",
     team: "Chiara C",
@@ -158,7 +163,7 @@ const users = [
     formato_evasione: "xls",
   },
   {
-    id: 41,
+    id: "41",
     name: "Giulia E",
     role: "Ares",
     team: "Deborah R",
@@ -172,7 +177,7 @@ const users = [
     formato_evasione: "xls",
   },
   {
-    id: 15,
+    id: "15",
     name: "Deborah R",
     role: "Axactor",
     team: "Deborah R",
@@ -186,7 +191,7 @@ const users = [
     formato_evasione: "xls",
   },
   {
-    id: 13,
+    id: "13",
     name: "Augusto P",
     role: "Axactor",
     team: "Deborah R",
@@ -200,7 +205,7 @@ const users = [
     formato_evasione: "xls",
   },
   {
-    id: 23,
+    id: "23",
     name: "Susanna D",
     role: "Ccollection",
     team: "Chiara C",
@@ -214,7 +219,7 @@ const users = [
     formato_evasione: "xls",
   },
   {
-    id: 33,
+    id: "33",
     name: "Chiara C",
     role: "Axactor",
     team: "Chiara C",
@@ -228,7 +233,7 @@ const users = [
     formato_evasione: "xls",
   },
   {
-    id: 43,
+    id: "43",
     name: "Giulia E",
     role: "Ares",
     team: "Deborah R",
@@ -242,7 +247,7 @@ const users = [
     formato_evasione: "xls",
   },
   {
-    id: 53,
+    id: "53",
     name: "Deborah R",
     role: "Axactor",
     team: "Deborah R",
@@ -258,7 +263,8 @@ const users = [
 ];
 
 export {
-  users,
+  actions,
+  pratiche,
   columns,
   statusOptions,
   statusColorMap,

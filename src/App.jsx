@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import Layout from "./components/Layout";
 import Dashboard from "./pages/BD_Dashboard";
 import ProfiloUtente from "./pages/BD_ProfiloUtente";
-import ListaLavorazioni from "./pages/BD_ListaLavorazioni";
 import Richieste from "./pages/BD_Richieste";
 import GestioneReport2 from "./pages/BD_GestioneReport2";
 import DettaglioPraticheMultiple from "./pages/BD_DettaglioPraticheMultiple";
@@ -46,8 +45,7 @@ function App() {
               <Routes>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/profilo" element={<ProfiloUtente />} />
-                <Route path="/richieste" element={<ListaLavorazioni />} />
-                <Route path="/richieste-2" element={<Richieste />} />
+                <Route path="/richieste" element={<Richieste />} />
                 <Route path="/gestione-report" element={<GestioneReport2 />} />
                 <Route
                   path="/multiple"

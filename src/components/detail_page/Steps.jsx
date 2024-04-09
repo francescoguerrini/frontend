@@ -1,26 +1,45 @@
 import { useState } from "react";
-import { FiSettings } from "react-icons/fi";
+import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/react";
+import { FiSettings, FiUser } from "react-icons/fi";
 
 const Stepper = () => {
   const events = [
-    "Registrazione richiesta",
-    "Assegnato a te",
-    "Chiamata Cerved",
-    "Redazione 1",
-    "Verifica Manuale",
-    "Evasione",
+    {
+      step: "Registrazione richiesta",
+      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
+    },
+    {
+      step: "Assegnato a te",
+      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
+    },
+    {
+      step: "Chiamata Cerved",
+      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
+    },
+    {
+      step: "Redazione 1",
+      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
+    },
+    {
+      step: "Verifica Manuale",
+      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
+    },
+    {
+      step: "Evasione",
+      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
+    },
   ];
-  const [currentStep, setCurrentStep] = useState(6);
+  const [currentStep, setCurrentStep] = useState(2);
   const [completed, setCompleted] = useState(false);
 
   return (
-    <div className="h-full flex flex-col bg-seventh xl:flex-col items-center text-slate-600 rounded-md p-1 pt-[1rem]">
-      <div className="h-[90%] overflow-auto">
+    <div className="h-full flex flex-col bg-seventh xl:flex-col items-center text-slate-600 rounded-md p-1 pt-[1rem] overflow-auto">
+      <div className="h-[90%] ">
         {events.map((event, i) => (
-          <div key={i} className={`flex flex-col items-center text-slate-500 `}>
+          <div key={i} className={`flex flex-col items-center text-slate-600 `}>
             <div className="flex gap-1 items-center">
               <div
-                className={`w-10 h-10 rounded-full flex items-center justify-center border mt-1 ${
+                className={`w-10 h-10 rounded-full flex items-center justify-center border border-slate-400 mt-1 ${
                   currentStep === i + 1 && "bg-sky-600 text-white"
                 } ${
                   (i + 1 < currentStep || completed) &&
@@ -30,11 +49,27 @@ const Stepper = () => {
                 {i + 1}
               </div>
               <div className="flex flex-col w-36">
-                <div className="text-[.6rem] flex gap-1 items-center">
-                  <FiSettings />
-                  Automatico
+                {i % 2 === 0 ? (
+                  <div className="text-[.6rem] flex gap-1 items-center">
+                    <FiUser />
+                    Manuale
+                  </div>
+                ) : (
+                  <div className="text-[.6rem] flex gap-1 items-center">
+                    <FiSettings />
+                    Automatico
+                  </div>
+                )}
+                <div className="text-[.7rem]">
+                  <Popover placement="top" className="max-w-[60%]">
+                    <PopoverTrigger>
+                      <button>{event.step}</button>
+                    </PopoverTrigger>
+                    <PopoverContent className="transition-all duration-300">
+                      <div className="text-tiny">{event.descrizione}</div>
+                    </PopoverContent>
+                  </Popover>
                 </div>
-                <div className="text-[.7rem]">{event}</div>
               </div>
             </div>
             {i < events.length - 1 && (
@@ -45,7 +80,7 @@ const Stepper = () => {
           </div>
         ))}
       </div>
-      <div className="w-full h-[10%] text-tiny flex items-center justify-evenly">
+      <div className="w-full h-[10%] text-tiny flex flex-col lg:flex-row items-center justify-evenly gap-1">
         <button
           className={` ${
             completed
@@ -71,6 +106,9 @@ const Stepper = () => {
           }}
         >
           {completed ? "Completato!" : "Successivo"}
+        </button>
+        <button className="bg-sky-700 text-white rounded py-1 px-2 border border-sky-700 hover:bg-white hover:text-sky-700 transition-all duration-300">
+          Ev. Parziale
         </button>
       </div>
     </div>
