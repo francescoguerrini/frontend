@@ -23,7 +23,7 @@ import RiassegnazioneModal from "../RiassegnazioneModal";
 import TableActions from "./TableActions";
 import {
   columns,
-  users,
+  pratiche,
   statusOptions,
   statusColorMap,
   INITIAL_VISIBLE_COLUMNS,
@@ -46,7 +46,7 @@ export default function ListaOperazioni() {
   });
   const [page, setPage] = useState(1);
 
-  const pages = Math.ceil(users.length / rowsPerPage);
+  const pages = Math.ceil(pratiche.length / rowsPerPage);
 
   const hasSearchFilter = Boolean(filterValue);
 
@@ -72,27 +72,31 @@ export default function ListaOperazioni() {
   // _________________FILTERED_ITEMS_________________
 
   const filteredItems = useMemo(() => {
-    let filteredUsers = [...users];
+    let filteredpratiche = [...pratiche];
 
     if (hasSearchFilter) {
-      filteredUsers = filteredUsers.filter((user) =>
-        user[selectedFilter].toLowerCase().includes(filterValue.toLowerCase())
-      );
-    }
-    if (
-      statusFilter !== "all" &&
-      Array.from(statusFilter).length !== statusOptions.length
-    ) {
-      filteredUsers = filteredUsers.filter((user) =>
-        Array.from(statusFilter).includes(user.status)
-      );
+      if (selectedFilter === "all" || selectedFilter === "") {
+        filteredpratiche = filteredpratiche.filter((pratica) =>
+          Object.values(pratica).some(
+            (fieldValue) =>
+              typeof fieldValue === "string" &&
+              fieldValue.toLowerCase().includes(filterValue.toLowerCase())
+          )
+        );
+      } else {
+        filteredpratiche = filteredpratiche.filter((pratica) =>
+          pratica[selectedFilter]
+            .toLowerCase()
+            .includes(filterValue.toLowerCase())
+        );
+      }
     }
 
-    return filteredUsers;
+    return filteredpratiche;
   }, [filterValue, statusFilter, hasSearchFilter]);
 
   // const filteredItems = useMemo(() => {
-  //   let filteredUsers = [...users];
+  //   let filteredpratiche = [...pratiche];
 
   //   const isAnyFilterActive =
   //     hasSearchFilter ||
@@ -101,7 +105,7 @@ export default function ListaOperazioni() {
 
   //   if (isAnyFilterActive) {
   //     if (hasSearchFilter) {
-  //       filteredUsers = filteredUsers.filter((user) =>
+  //       filteredpratiche = filteredpratiche.filter((user) =>
   //         user[selectedFilter].toLowerCase().includes(filterValue.toLowerCase())
   //       );
   //     }
@@ -110,14 +114,14 @@ export default function ListaOperazioni() {
   //       statusFilter !== "all" &&
   //       Array.from(statusFilter).length !== statusOptions.length
   //     ) {
-  //       filteredUsers = filteredUsers.filter((user) =>
+  //       filteredpratiche = filteredpratiche.filter((user) =>
   //         Array.from(statusFilter).includes(user.status)
   //       );
   //     }
   //   } else {
   //     // Nessun filtro attivo, quindi la ricerca è valida per tutti i campi
   //     if (selectedFilter === "") {
-  //       filteredUsers = filteredUsers.filter((user) =>
+  //       filteredpratiche = filteredpratiche.filter((user) =>
   //         Object.values(user).some(
   //           (value) =>
   //             typeof value === "string" &&
@@ -126,13 +130,13 @@ export default function ListaOperazioni() {
   //       );
   //     } else {
   //       // Cicla solo sul campo selezionato se il filtro non è vuoto
-  //       filteredUsers = filteredUsers.filter((user) =>
+  //       filteredpratiche = filteredpratiche.filter((user) =>
   //         user[selectedFilter].toLowerCase().includes(filterValue.toLowerCase())
   //       );
   //     }
   //   }
 
-  //   return filteredUsers; // Ritorna l'array degli utenti filtrati
+  //   return filteredpratiche; // Ritorna l'array degli utenti filtrati
   // }, [filterValue, statusFilter, hasSearchFilter, selectedFilter]);
   // _________________ITEMS_________________
 
@@ -155,20 +159,20 @@ export default function ListaOperazioni() {
 
   // _________________RENDER_CELL_________________
 
-  const renderCell = useCallback((user, columnKey) => {
-    const cellValue = user[columnKey];
+  const renderCell = useCallback((pratica, columnKey) => {
+    const cellValue = pratica[columnKey];
 
     switch (columnKey) {
       case "name":
         return (
           <User
-            avatarProps={{ radius: "full", size: "sm", src: user.avatar }}
+            avatarProps={{ radius: "full", size: "sm", src: pratica.avatar }}
             classNames={{
               description: "text-default-500",
             }}
             name={cellValue}
           >
-            {user.email}
+            {pratica.email}
           </User>
         );
       case "role":
@@ -176,7 +180,7 @@ export default function ListaOperazioni() {
           <div className="flex flex-col">
             <p className="text-bold text-small capitalize">{cellValue}</p>
             <p className="text-bold text-tiny capitalize text-default-500">
-              {user.age}
+              {pratica.age}
             </p>
           </div>
         );
@@ -188,7 +192,7 @@ export default function ListaOperazioni() {
               content={
                 <div>
                   <p className="text-bold text-small capitalize">
-                    aim_id: {user.age}
+                    aim_id: {pratica.age}
                   </p>
                   <p className="text-bold text-small capitalize">
                     id_remoto: 123
@@ -221,7 +225,7 @@ export default function ListaOperazioni() {
         return (
           <Chip
             className="capitalize border-none gap-1 text-default-600"
-            color={statusColorMap[user.status]}
+            color={statusColorMap[pratica.status]}
             size="sm"
             variant="dot"
           ></Chip>
@@ -450,7 +454,7 @@ export default function ListaOperazioni() {
             </TableColumn>
           )}
         </TableHeader>
-        <TableBody emptyContent={"No users found"} items={sortedItems}>
+        <TableBody emptyContent={"No pratiche found"} items={sortedItems}>
           {(item) => (
             <TableRow key={item.id} className="border-b ">
               {(columnKey) => (

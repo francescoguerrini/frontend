@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const FilterSelector = ({ onFilterChange }) => {
   const options = [
-    // { label: "", value: "Tutti" },
+    { label: "all", value: "Tutti" },
     { label: "name", value: "Operatore" },
     { label: "team", value: "Responsabile" },
     { label: "role", value: "Cliente" },
