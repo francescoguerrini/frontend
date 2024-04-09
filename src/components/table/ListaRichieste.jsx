@@ -1,5 +1,4 @@
 import { useState, useMemo, useCallback } from "react";
-import { Link } from "react-router-dom";
 import {
   Tooltip,
   Table,
@@ -8,19 +7,12 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Input,
-  Button,
-  DropdownTrigger,
-  Dropdown,
-  DropdownMenu,
-  DropdownItem,
   Chip,
-  User,
+  Avatar,
   Pagination,
 } from "@nextui-org/react";
-import { FiSearch, FiChevronDown, FiEye } from "react-icons/fi";
-import RiassegnazioneModal from "../RiassegnazioneModal";
 import TableActions from "./TableActions";
+import TopContent from "./TopContent";
 import {
   columns,
   pratiche,
@@ -28,17 +20,17 @@ import {
   statusColorMap,
   INITIAL_VISIBLE_COLUMNS,
 } from "./data";
-import { capitalize } from "./utils";
-import FilterSelector from "./FilterSelector";
 
 export default function ListaOperazioni() {
+  // filtro x search
   const [filterValue, setFilterValue] = useState("");
+  // filtro x status
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [selectedFilter, setSelectedFilter] = useState("");
   const [selectedKeys, setSelectedKeys] = useState(new Set([]));
   const [visibleColumns, setVisibleColumns] = useState(
     new Set(INITIAL_VISIBLE_COLUMNS)
   );
-  const [statusFilter, setStatusFilter] = useState("all");
-  const [selectedFilter, setSelectedFilter] = useState("");
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [sortDescriptor, setSortDescriptor] = useState({
     column: "age",
@@ -74,22 +66,28 @@ export default function ListaOperazioni() {
   const filteredItems = useMemo(() => {
     let filteredpratiche = [...pratiche];
 
-    if (hasSearchFilter) {
-      if (selectedFilter === "all" || selectedFilter === "") {
-        filteredpratiche = filteredpratiche.filter((pratica) =>
-          Object.values(pratica).some(
-            (fieldValue) =>
-              typeof fieldValue === "string" &&
-              fieldValue.toLowerCase().includes(filterValue.toLowerCase())
-          )
-        );
-      } else {
-        filteredpratiche = filteredpratiche.filter((pratica) =>
-          pratica[selectedFilter]
-            .toLowerCase()
-            .includes(filterValue.toLowerCase())
-        );
-      }
+    if (selectedFilter === "all" || selectedFilter === "") {
+      filteredpratiche = filteredpratiche.filter((pratica) =>
+        Object.values(pratica).some(
+          (fieldValue) =>
+            typeof fieldValue === "string" &&
+            fieldValue.toLowerCase().includes(filterValue.toLowerCase())
+        )
+      );
+    } else {
+      filteredpratiche = filteredpratiche.filter((pratica) =>
+        pratica[selectedFilter]
+          .toLowerCase()
+          .includes(filterValue.toLowerCase())
+      );
+    }
+    if (
+      statusFilter !== "all" &&
+      Array.from(statusFilter).length !== statusOptions.length
+    ) {
+      filteredpratiche = filteredpratiche.filter((pratiche) =>
+        Array.from(statusFilter).includes(pratiche.status)
+      );
     }
 
     return filteredpratiche;
@@ -138,6 +136,7 @@ export default function ListaOperazioni() {
 
   //   return filteredpratiche; // Ritorna l'array degli utenti filtrati
   // }, [filterValue, statusFilter, hasSearchFilter, selectedFilter]);
+
   // _________________ITEMS_________________
 
   const items = useMemo(() => {
@@ -165,20 +164,35 @@ export default function ListaOperazioni() {
     switch (columnKey) {
       case "name":
         return (
-          <User
-            avatarProps={{ radius: "full", size: "sm", src: pratica.avatar }}
-            classNames={{
-              description: "text-default-500",
-            }}
-            name={cellValue}
-          >
-            {pratica.email}
-          </User>
+          <div className="flex">
+            <Avatar
+              isBordered
+              color="success"
+              size="sm"
+              src={pratica.avatar2}
+              classNames={{
+                description: "text-default-500",
+              }}
+            >
+              <p className="text-tiny">{pratica.email}</p>
+            </Avatar>
+            <Avatar
+              isBordered
+              color="primary"
+              size="sm"
+              src={pratica.avatar}
+              classNames={{
+                description: "text-default-500",
+              }}
+            >
+              <p className="text-tiny">{pratica.email}</p>
+            </Avatar>
+          </div>
         );
       case "role":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-small capitalize">{cellValue}</p>
+            <p className="text-bold capitalize text-tiny">{cellValue}</p>
             <p className="text-bold text-tiny capitalize text-default-500">
               {pratica.age}
             </p>
@@ -191,10 +205,10 @@ export default function ListaOperazioni() {
               placement="bottom"
               content={
                 <div>
-                  <p className="text-bold text-small capitalize">
+                  <p className="text-bold capitalize text-tiny">
                     aim_id: {pratica.age}
                   </p>
-                  <p className="text-bold text-small capitalize">
+                  <p className="text-bold capitalize text-tiny">
                     id_remoto: 123
                   </p>
                 </div>
@@ -212,12 +226,12 @@ export default function ListaOperazioni() {
               placement="bottom"
               content={
                 <div>
-                  <p className="text-bold text-small">nome_richiesta: xxyyzz</p>
+                  <p className="text-bold text-tiny">nome_richiesta: xxyyzz</p>
                 </div>
               }
               color="danger"
             >
-              <p className="text-bold text-small capitalize">{cellValue}</p>
+              <p className="text-bold text-tiny capitalize">{cellValue}</p>
             </Tooltip>
           </div>
         );
@@ -231,20 +245,7 @@ export default function ListaOperazioni() {
           ></Chip>
         );
       case "actions":
-        return (
-          <div className="relative flex items-center gap-2">
-            <Tooltip content="Dettagli">
-              <Link to="/gestione-report">
-                <FiEye />
-              </Link>
-            </Tooltip>
-            <Tooltip color="danger" content="Riassegna">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-5">
-                <RiassegnazioneModal title="Riassegnazione Richiesta" />
-              </span>
-            </Tooltip>
-          </div>
-        );
+        return <TableActions top={false} />;
       default:
         return cellValue;
     }
@@ -272,96 +273,19 @@ export default function ListaOperazioni() {
 
   const topContent = useMemo(() => {
     return (
-      <div className="flex flex-col gap-3">
-        <div className="flex justify-between gap-3 items-end">
-          <Input
-            isClearable
-            classNames={{
-              base: "w-full sm:max-w-[44%]",
-              inputWrapper: "border-1 h-2",
-            }}
-            placeholder="...cerca"
-            size="sm"
-            startContent={<FiSearch className="text-default-300" />}
-            value={filterValue}
-            variant="bordered"
-            onClear={() => setFilterValue("")}
-            onValueChange={onSearchChange}
-          />
-          <div>
-            <TableActions />
-          </div>
-          <div className="flex gap-2 mr-2">
-            <Dropdown>
-              <DropdownTrigger className="hidden sm:flex">
-                <Button
-                  endContent={<FiChevronDown className="text-small" />}
-                  size="sm"
-                  variant="flat"
-                >
-                  Stato
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu
-                disallowEmptySelection
-                aria-label="Table Columns"
-                closeOnSelect={false}
-                selectedKeys={statusFilter}
-                selectionMode="multiple"
-                onSelectionChange={setStatusFilter}
-              >
-                {statusOptions.map((status) => (
-                  <DropdownItem key={status.uid} className="capitalize">
-                    {capitalize(status.name)}
-                  </DropdownItem>
-                ))}
-              </DropdownMenu>
-            </Dropdown>
-            <Dropdown>
-              <DropdownTrigger className="hidden sm:flex">
-                <Button
-                  className="bg-foreground text-background"
-                  endContent={<FiChevronDown className="text-small" />}
-                  size="sm"
-                  variant="flat"
-                >
-                  Campi
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu
-                disallowEmptySelection
-                aria-label="Table Columns"
-                closeOnSelect={false}
-                selectedKeys={visibleColumns}
-                selectionMode="multiple"
-                onSelectionChange={setVisibleColumns}
-              >
-                {columns.map((column) => (
-                  <DropdownItem key={column.uid} className="capitalize">
-                    {capitalize(column.name)}
-                  </DropdownItem>
-                ))}
-              </DropdownMenu>
-            </Dropdown>
-          </div>
-        </div>
-        <div className="flex justify-between items-center">
-          <span className="text-default-400 text-small">
-            <FilterSelector onFilterChange={handleFilterChange} />
-          </span>
-          <label className="flex items-center text-default-400 text-small">
-            Righe per pagina:
-            <select
-              className="bg-transparent outline-none text-default-400 text-small"
-              onChange={onRowsPerPageChange}
-            >
-              <option value="10">10</option>
-              <option value="25">25</option>
-              <option value="50">50</option>
-            </select>
-          </label>
-        </div>
-      </div>
+      <TopContent
+        filterValue={filterValue}
+        statusFilter={statusFilter}
+        visibleColumns={visibleColumns}
+        statusOptions={statusOptions}
+        columns={columns}
+        onSearchChange={onSearchChange}
+        onRowsPerPageChange={onRowsPerPageChange}
+        setFilterValue={setFilterValue}
+        setStatusFilter={setStatusFilter}
+        setVisibleColumns={setVisibleColumns}
+        handleFilterChange={handleFilterChange}
+      />
     );
   }, [
     filterValue,
@@ -369,6 +293,7 @@ export default function ListaOperazioni() {
     visibleColumns,
     onSearchChange,
     onRowsPerPageChange,
+    handleFilterChange,
   ]);
 
   // _________________BOTTOM_CONTENT_________________
@@ -419,7 +344,7 @@ export default function ListaOperazioni() {
   // _________________TABLE_BODY_________________
 
   return (
-    <div className="flex items-center justify-center w-full sm:mx-[4%]">
+    <div className="flex items-center justify-center w-full m-1">
       <Table
         className="bg-white px-3 py-4 rounded-md"
         isCompact
@@ -447,16 +372,22 @@ export default function ListaOperazioni() {
           {(column) => (
             <TableColumn
               key={column.uid}
-              align={column.uid === "actions" ? "center" : "start"}
               allowsSorting={column.sortable}
+              style={{ minWidth: column.width }}
             >
-              {column.name}
+              <div
+                className={`h-full w-full flex items-center ${
+                  column.uid === "actions" ? "justify-center" : "justify-start"
+                }`}
+              >
+                {column.name}
+              </div>
             </TableColumn>
           )}
         </TableHeader>
         <TableBody emptyContent={"No pratiche found"} items={sortedItems}>
           {(item) => (
-            <TableRow key={item.id} className="border-b ">
+            <TableRow key={item.id} className="border-b">
               {(columnKey) => (
                 <TableCell>{renderCell(item, columnKey)}</TableCell>
               )}

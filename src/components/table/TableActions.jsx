@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import {
   FiAperture,
   FiCodepen,
@@ -23,16 +24,25 @@ const actions = [
   { event: "vedo", icon: FiVideo },
 ];
 
-const TableActions = () => {
+const TableActions = ({ top }) => {
   return (
     <div className="w-full">
-      <div className="flex items-center justify-center gap-3">
+      <div
+        className={` ${
+          top
+            ? "flex gap-1 lg:gap-3 items-center justify-centermb-1 lg:mb-0"
+            : "xl:flex items-center justify-center gap-[.1rem]"
+        }`}
+      >
         {actions.map((action, index) => (
           <ActionModal key={index} content={action} />
         ))}
       </div>
     </div>
   );
+};
+TableActions.PropTypes = {
+  top: PropTypes.bool,
 };
 
 export default TableActions;
