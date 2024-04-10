@@ -30,7 +30,7 @@ const columns = [
   { name: "ID", uid: "id", width: "20px" },
   { name: "Prodotto", uid: "email", width: "120px" },
   { name: "Cliente", uid: "role", width: "40px" },
-  { name: "Operatore", uid: "name", width: "90px" },
+  { name: "Resp/Operat", uid: "name", width: "90px" },
   { name: "Richiesta", uid: "data_richiesta", width: "100px" },
   { name: "Scadenza", uid: "data_scadenza", width: "100px" },
   { name: "Stato", uid: "status", width: "50px" },
@@ -60,6 +60,7 @@ const pratiche = [
     data_scadenza: "24/03/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "normale",
   },
   {
     id: "72",
@@ -75,6 +76,7 @@ const pratiche = [
     data_scadenza: "29/02/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "normale",
   },
   {
     id: "83",
@@ -90,6 +92,7 @@ const pratiche = [
     data_scadenza: "29/01/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "urgente",
   },
   {
     id: "94",
@@ -105,6 +108,7 @@ const pratiche = [
     data_scadenza: "01/04/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "normale",
   },
   {
     id: "105",
@@ -120,6 +124,7 @@ const pratiche = [
     data_scadenza: "02/02/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "normale",
   },
   {
     id: "111",
@@ -135,6 +140,7 @@ const pratiche = [
     data_scadenza: "24/03/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "urgente",
   },
   {
     id: "12",
@@ -150,6 +156,7 @@ const pratiche = [
     data_scadenza: "29/02/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "normale",
   },
   {
     id: "31",
@@ -165,6 +172,7 @@ const pratiche = [
     data_scadenza: "29/01/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "urgente",
   },
   {
     id: "41",
@@ -180,6 +188,7 @@ const pratiche = [
     data_scadenza: "01/04/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "normale",
   },
   {
     id: "15",
@@ -195,6 +204,7 @@ const pratiche = [
     data_scadenza: "02/02/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "normale",
   },
   {
     id: "13",
@@ -210,6 +220,7 @@ const pratiche = [
     data_scadenza: "24/03/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "urgente",
   },
   {
     id: "23",
@@ -225,6 +236,7 @@ const pratiche = [
     data_scadenza: "29/02/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "normale",
   },
   {
     id: "33",
@@ -240,6 +252,7 @@ const pratiche = [
     data_scadenza: "29/01/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "normale",
   },
   {
     id: "43",
@@ -255,6 +268,7 @@ const pratiche = [
     data_scadenza: "01/04/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "urgente",
   },
   {
     id: "53",
@@ -270,6 +284,7 @@ const pratiche = [
     data_scadenza: "02/02/24",
     data_evasione: "",
     formato_evasione: "xls",
+    urgenza: "normale",
   },
 ];
 

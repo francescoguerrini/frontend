@@ -31,7 +31,7 @@ export default function ListaOperazioni() {
   const [visibleColumns, setVisibleColumns] = useState(
     new Set(INITIAL_VISIBLE_COLUMNS)
   );
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(20);
   const [sortDescriptor, setSortDescriptor] = useState({
     column: "age",
     direction: "ascending",
@@ -93,50 +93,6 @@ export default function ListaOperazioni() {
     return filteredpratiche;
   }, [filterValue, statusFilter, hasSearchFilter]);
 
-  // const filteredItems = useMemo(() => {
-  //   let filteredpratiche = [...pratiche];
-
-  //   const isAnyFilterActive =
-  //     hasSearchFilter ||
-  //     (statusFilter !== "all" &&
-  //       Array.from(statusFilter).length !== statusOptions.length);
-
-  //   if (isAnyFilterActive) {
-  //     if (hasSearchFilter) {
-  //       filteredpratiche = filteredpratiche.filter((user) =>
-  //         user[selectedFilter].toLowerCase().includes(filterValue.toLowerCase())
-  //       );
-  //     }
-
-  //     if (
-  //       statusFilter !== "all" &&
-  //       Array.from(statusFilter).length !== statusOptions.length
-  //     ) {
-  //       filteredpratiche = filteredpratiche.filter((user) =>
-  //         Array.from(statusFilter).includes(user.status)
-  //       );
-  //     }
-  //   } else {
-  //     // Nessun filtro attivo, quindi la ricerca è valida per tutti i campi
-  //     if (selectedFilter === "") {
-  //       filteredpratiche = filteredpratiche.filter((user) =>
-  //         Object.values(user).some(
-  //           (value) =>
-  //             typeof value === "string" &&
-  //             value.toLowerCase().includes(filterValue.toLowerCase())
-  //         )
-  //       );
-  //     } else {
-  //       // Cicla solo sul campo selezionato se il filtro non è vuoto
-  //       filteredpratiche = filteredpratiche.filter((user) =>
-  //         user[selectedFilter].toLowerCase().includes(filterValue.toLowerCase())
-  //       );
-  //     }
-  //   }
-
-  //   return filteredpratiche; // Ritorna l'array degli utenti filtrati
-  // }, [filterValue, statusFilter, hasSearchFilter, selectedFilter]);
-
   // _________________ITEMS_________________
 
   const items = useMemo(() => {
@@ -167,7 +123,7 @@ export default function ListaOperazioni() {
           <div className="flex">
             <Avatar
               isBordered
-              color="success"
+              color="default"
               size="sm"
               src={pratica.avatar2}
               classNames={{
@@ -178,7 +134,7 @@ export default function ListaOperazioni() {
             </Avatar>
             <Avatar
               isBordered
-              color="primary"
+              color=""
               size="sm"
               src={pratica.avatar}
               classNames={{
@@ -192,9 +148,15 @@ export default function ListaOperazioni() {
       case "role":
         return (
           <div className="flex flex-col">
-            <p className="text-bold capitalize text-tiny">{cellValue}</p>
-            <p className="text-bold text-tiny capitalize text-default-500">
-              {pratica.age}
+            <p className="text-bold capitalize text-sm">{cellValue}</p>
+            <p>
+              {pratica.urgenza === "urgente" ? (
+                <span className="text-rose-700 text-[.6rem]">
+                  {pratica.urgenza}
+                </span>
+              ) : (
+                <span></span>
+              )}
             </p>
           </div>
         );
