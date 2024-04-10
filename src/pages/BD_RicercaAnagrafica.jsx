@@ -73,10 +73,7 @@ const RicercaAnagrafica = () => {
       </div>
 
       <div className="bg-seventh rounded-md flex-grow p-6 h-full overflow-y-scroll">
-        <form
-          className="w-1/2 py-12 flex flex-col gap-3"
-          onSubmit={handleSubmit}
-        >
+        <form className="py-12 gri grid-cols-2" onSubmit={handleSubmit}>
           <BaseInput
             label="Denominazione"
             placeholder=""

@@ -6,7 +6,7 @@ const FilterSelector = ({ onFilterChange }) => {
     { label: "name", value: "Operatore" },
     { label: "team", value: "Responsabile" },
     { label: "role", value: "Cliente" },
-    { label: "email", value: "Nome" },
+    { label: "email", value: "Prodotto" },
   ];
   const [active, setActive] = useState("");
 

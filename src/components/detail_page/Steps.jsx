@@ -84,8 +84,8 @@ const Stepper = () => {
         <button
           className={` ${
             completed
-              ? "bg-white text-rose-700 line-through"
-              : "bg-rose-700 text-white rounded py-1 px-2 border border-rose-700 hover:bg-white hover:text-rose-700 transition-all duration-300"
+              ? "bg-rose-100 text-rose-700 line-through"
+              : "bg-rose-700 text-white rounded py-1 px-2 border border-rose-700 hover:bg-rose-50 hover:text-rose-700 transition-all duration-300"
           }`}
           onClick={() => {
             !completed && setCurrentStep((prev) => prev - 1);
@@ -97,7 +97,7 @@ const Stepper = () => {
         <button
           disabled={completed}
           className={`bg-emerald-600 text-white rounded py-1 px-2 border border-emerald-600 ${
-            !completed ? "hover:bg-white hover:text-emerald-600" : ""
+            !completed ? "hover:bg-emerald-50 hover:text-emerald-600" : ""
           } transition-all duration-300`}
           onClick={() => {
             currentStep === events.length
@@ -107,7 +107,7 @@ const Stepper = () => {
         >
           {completed ? "Completato!" : "Successivo"}
         </button>
-        <button className="bg-sky-700 text-white rounded py-1 px-2 border border-sky-700 hover:bg-white hover:text-sky-700 transition-all duration-300">
+        <button className="bg-sky-700 text-white rounded py-1 px-2 border border-sky-700 hover:bg-sky-50 hover:text-sky-700 transition-all duration-300">
           Ev. Parziale
         </button>
       </div>

@@ -5,7 +5,7 @@ const BaseInput = ({ label, placeholder, value, onChange, name }) => {
     <div className="flex flex-col">
       <label className="label block text-gray-700">{label}</label>
       <input
-        className="shadow appearance-none border rounded w-full py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline pl-2"
+        className="shadow appearance-none border rounded w-full py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline pl-2 "
         type="text"
         placeholder={placeholder}
         value={value}
