@@ -10,7 +10,6 @@ import {
   FiZoomIn,
 } from "react-icons/fi";
 import ActionModal from "./table_modals/ActionModal";
-import TestModal from "./table_modals/TestModal";
 import AssegnazioneModal from "./table_modals/AssegnazioneModal";
 import AccertamentiModal from "./table_modals/AccertamentiModal";
 
