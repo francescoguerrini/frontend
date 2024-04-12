@@ -14,13 +14,11 @@ import {
   Tooltip,
 } from "@nextui-org/react";
 
-export default function AccertamentiModal({ content }) {
+export default function CambioPriorita({ content }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const animals = [
-    { label: "Catasto", value: "catasto" },
-    { label: "Domicilio", value: "domicilio" },
-    { label: "Relazioni Bancarie", value: "relbancarie" },
-    { label: "Patrimonio", value: "patrimonio" },
+  const states = [
+    { label: "Normale", value: "normale" },
+    { label: "Urgente", value: "urgente" },
   ];
   const [values, setValues] = useState(new Set([]));
   const [confirmation, setConfirmation] = useState(true);
@@ -37,7 +35,7 @@ export default function AccertamentiModal({ content }) {
       </Tooltip>
       <Modal isOpen={isOpen} onClose={onClose} placement="top-center">
         <ModalContent>
-          <ModalHeader>Accertamenti</ModalHeader>
+          <ModalHeader>Cambia Priorità</ModalHeader>
           <ModalBody>
             <div>
               <div>Pratiche Selezionate</div>
@@ -46,21 +44,23 @@ export default function AccertamentiModal({ content }) {
                 <div>Luca Bianchi</div>
                 <div>Gianni Verdi</div>
                 <div>Peppe Neri</div>
-                <div>Mimmo Azzurri</div>
-                <div>Ettore Viola</div>
+              </div>
+            </div>
+            <div>
+              <div>Livello Priorità Attuale</div>
+              <div className="border flex flex-wrap gap-x-1 text-slate-700 text-sm">
+                Urgente
               </div>
             </div>
             <Select
-              label="Favorite Animal"
-              selectionMode="multiple"
-              placeholder="Select an animal"
+              placeholder="Scegli nuovo livello priorità"
               selectedKeys={values}
               className="max-w-xs"
               onSelectionChange={setValues}
             >
-              {animals.map((animal) => (
-                <SelectItem key={animal.value} value={animal.value}>
-                  {animal.label}
+              {states.map((stato) => (
+                <SelectItem key={stato.value} value={stato.value}>
+                  {stato.label}
                 </SelectItem>
               ))}
             </Select>
@@ -72,13 +72,9 @@ export default function AccertamentiModal({ content }) {
             >
               <div className="flex flex-col">
                 <p className="text-small text-default-500">
-                  <p>Hai scelto i seguenti accertamenti:</p>
+                  <p>Vuoi cambiare la priorità delle pratiche in:</p>
                   <p className="text-rose-600">
                     {Array.from(values).join(", ")}
-                  </p>{" "}
-                  <p>
-                    da eseguire su <span className="text-amber-600">6</span>{" "}
-                    pratiche
                   </p>
                 </p>
               </div>
@@ -98,7 +94,7 @@ export default function AccertamentiModal({ content }) {
             </Button>
           </ModalFooter>
         </ModalContent>
-      </Modal>{" "}
+      </Modal>
     </>
   );
 }
@@ -107,6 +103,6 @@ const ContentShape = PropTypes.shape({
   icon: PropTypes.elementType,
 });
 
-AccertamentiModal.propTypes = {
+CambioPriorita.propTypes = {
   content: ContentShape,
 };

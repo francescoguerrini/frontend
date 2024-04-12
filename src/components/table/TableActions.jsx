@@ -9,39 +9,44 @@ import {
   FiLayers,
   FiZoomIn,
 } from "react-icons/fi";
-import ActionModal from "./table_modals/ActionModal";
 import AssegnazioneModal from "./table_modals/AssegnazioneModal";
 import AccertamentiModal from "./table_modals/AccertamentiModal";
+import CambioStatoModal from "./table_modals/CambioStatoModal";
+import CambioPriorita from "./table_modals/CambioPrioritaModal";
+import AssegnaTagModal from "./table_modals/AssegnaTagModal";
+import CambiaNomeFileModal from "./table_modals/CambioNomeFileModal";
+import VediRichiesteCollegateModal from "./table_modals/VediRichiesteCollegateModal";
+import AggiungiNotaModal from "./table_modals/AggiungiNotaModal";
 
-const actions = [
-  { event: "Cambia Stato", icon: FiCircle },
-  { event: "Cambia Nome File", icon: FiFileText },
-  { event: "Cambia Priorità", icon: FiAlertTriangle },
-  { event: "Aggiungi Nota", icon: FiMusic },
-  { event: "Assegna Tag", icon: FiLink },
-  { event: "Visualizza Richieste Collegate", icon: FiLayers },
-];
 const assegnazione = { event: "Riassegna", icon: FiShuffle };
 const accertamenti = { event: "Accertamenti", icon: FiZoomIn };
-// const test = { event: "Test", icon: FiMeh };
+const cambiaStato = { event: "Cambia Stato", icon: FiCircle };
+const cambioPriorita = { event: "Cambia Priorità", icon: FiAlertTriangle };
+const assegnaTag = { event: "Assegna Tag", icon: FiLink };
+const cambiaNomeFile = { event: "Cambia Nome File", icon: FiFileText };
+const richiesteCollegate = {
+  event: "Visualizza Richieste Collegate",
+  icon: FiLayers,
+};
+const aggiungiNota = { event: "Aggiungi Nota", icon: FiMusic };
 
 const TableActions = ({ top }) => {
   return (
-    <div className="">
-      <div
-        className={` ${
-          top
-            ? "flex gap-1 lg:gap-3 items-center justify-center mb-1 lg:mb-0"
-            : "lg:flex lg:items-center gap-[.1rem]"
-        }`}
-      >
-        <AssegnazioneModal content={assegnazione} />
-        <AccertamentiModal content={accertamenti} />
-        {actions.map((action, index) => (
-          <ActionModal key={index} content={action} />
-        ))}
-        {/* <TestModal content={accertamenti} /> */}
-      </div>
+    <div
+      className={` ${
+        top
+          ? "flex gap-1 items-center"
+          : "flex flex-wrap gap-[.1rem] items-center justify-center"
+      }`}
+    >
+      <AssegnazioneModal content={assegnazione} />
+      <AccertamentiModal content={accertamenti} />
+      <CambioStatoModal content={cambiaStato} />
+      <CambioPriorita content={cambioPriorita} />
+      <AssegnaTagModal content={assegnaTag} />
+      <CambiaNomeFileModal content={cambiaNomeFile} />
+      <AggiungiNotaModal content={richiesteCollegate} />
+      <VediRichiesteCollegateModal content={aggiungiNota} />
     </div>
   );
 };

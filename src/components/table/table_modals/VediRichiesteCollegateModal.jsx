@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 import {
   Modal,
   ModalContent,
@@ -9,14 +10,19 @@ import {
   useDisclosure,
   Checkbox,
   Input,
-  Link,
   Tooltip,
 } from "@nextui-org/react";
 
 import { FiMail, FiLink } from "react-icons/fi";
 
-export default function ActionModal({ content }) {
+export default function VediRichiesteCollegateModal({ content }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [value, setValue] = useState("");
+  const [confirmation, setConfirmation] = useState(true);
+
+  const handleClick = (e) => {
+    setValue(e.target.value);
+  };
 
   return (
     <>
@@ -38,42 +44,43 @@ export default function ActionModal({ content }) {
               </ModalHeader>
               <ModalBody>
                 <Input
-                  autoFocus
-                  endContent={
-                    <FiMail className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
-                  }
-                  label="Email"
-                  placeholder="Enter your email"
-                  variant="bordered"
-                />
-                <Input
                   endContent={
                     <FiLink className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                   }
-                  label="Password"
-                  placeholder="Enter your password"
-                  type="password"
+                  placeholder="Nuovo Nome"
+                  type="text"
                   variant="bordered"
                 />
-                <div className="flex py-2 px-1 justify-between">
-                  <Checkbox
-                    classNames={{
-                      label: "text-small",
-                    }}
-                  >
-                    Remember me
-                  </Checkbox>
-                  <Link color="primary" href="#" size="sm">
-                    Forgot password?
-                  </Link>
-                </div>
+                <Checkbox
+                  onValueChange={() => setConfirmation(!confirmation)}
+                  classNames={{
+                    label: "text-small",
+                  }}
+                >
+                  <div className="flex flex-col">
+                    <p className="text-small text-default-500">
+                      <p>Vuoi modificare il nome del file in:</p>
+                      <p className="text-rose-600">{value}</p>
+                    </p>
+                  </div>
+                </Checkbox>
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="flat" onPress={onClose}>
+                <Button
+                  color="danger"
+                  variant="flat"
+                  onPress={onClose}
+                  size="sm"
+                >
                   Close
                 </Button>
-                <Button color="primary" onPress={onClose}>
-                  Sign in
+                <Button
+                  color="primary"
+                  size="sm"
+                  onClick={onClose}
+                  isDisabled={confirmation}
+                >
+                  Procedi
                 </Button>
               </ModalFooter>
             </>
@@ -91,6 +98,6 @@ const ContentShape = PropTypes.shape({
 
   // Aggiungi altre chiavi e i rispettivi tipi di dati se necessario
 });
-ActionModal.propTypes = {
+VediRichiesteCollegateModal.propTypes = {
   content: ContentShape,
 };
