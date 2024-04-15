@@ -3,18 +3,12 @@
         "icon": "FiHome",
         "text": "Dashboard",
         "target": "/dashboard",
-        "disabled": false
+        "disabled": true
     },
     {
         "icon": "FiList",
         "text": "Richieste",
         "target": "/richieste",
-        "disabled": false
-    },
-    {
-        "icon": "FiCopy",
-        "text": "Gestione Report",
-        "target": "/gestione-report",
         "disabled": false
     },
     {

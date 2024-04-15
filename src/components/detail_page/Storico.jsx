@@ -30,11 +30,65 @@ const Storico = () => {
       ora: "17:01",
       evento: `Evasione avvenuta con successo`,
     },
+    {
+      autore: "Giulia",
+      data: "12/02/2024",
+      ora: "17:01",
+      evento: `Evasione avvenuta con successo`,
+    },
+    {
+      autore: "Valentina",
+      data: "12/02/2024",
+      ora: "12:44",
+      evento: "Chiamata Cerved completata. I dati sono ora disponibili",
+    },
+    {
+      autore: "Giulia",
+      data: "12/02/2024",
+      ora: "15:06",
+      evento: "Ha completato lo step di lavorazione manuale",
+    },
+    {
+      autore: "Giulia",
+      data: "12/02/2024",
+      ora: "17:01",
+      evento: `Evasione avvenuta con successo`,
+    },
+    {
+      autore: "Giulia",
+      data: "12/02/2024",
+      ora: "17:01",
+      evento: `Evasione avvenuta con successo`,
+    },
+    {
+      autore: "Valentina",
+      data: "12/02/2024",
+      ora: "12:44",
+      evento: "Chiamata Cerved completata. I dati sono ora disponibili",
+    },
+    {
+      autore: "Giulia",
+      data: "12/02/2024",
+      ora: "15:06",
+      evento: "Ha completato lo step di lavorazione manuale",
+    },
+    {
+      autore: "Giulia",
+      data: "12/02/2024",
+      ora: "17:01",
+      evento: `Evasione avvenuta con successo`,
+    },
+    {
+      autore: "Giulia",
+      data: "12/02/2024",
+      ora: "17:01",
+      evento: `Evasione avvenuta con successo`,
+    },
   ];
   return (
-    <div className="h-full flex flex-col overflow-auto bg-seventh px-1">
-      <div className="hidden report-title xl:flex">Storico/log</div>
-      <div className="h-full flex flex-col xl:justify-center">
+    <div className="h-full w-full flex flex-col overflow-auto bg-seventh justify-between">
+      <div className="report-title">Storico/log</div>
+      <div className="h-full flex flex-col">
         {messaggi.map((mex, index) => (
           <div
             key={index}

@@ -51,9 +51,8 @@ export default function AccertamentiModal({ content }) {
               </div>
             </div>
             <Select
-              label="Favorite Animal"
               selectionMode="multiple"
-              placeholder="Select an animal"
+              placeholder="Seleziona il prodotto"
               selectedKeys={values}
               className="max-w-xs"
               onSelectionChange={setValues}

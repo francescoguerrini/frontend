@@ -11,31 +11,55 @@ const Commenti = () => {
       autore: deborah,
       data: "12/02/2024",
       ora: "13:58",
-      text: "Ho visto che hai fatto pochi straordinari questa settimana",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
     },
     {
       autore: giulia,
       data: "12/02/2024",
       ora: "14:03",
-      text: "Ma Deb... sono a 6 ore, è solo mercoledì",
+      text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
     },
     {
       autore: deborah,
       data: "12/02/2024",
       ora: "14:35",
-      text: "Se non hai voglia di fare un ca@@o vai alle poste",
+      text: "qui dolorem ipsum quia dolor sit amet",
     },
     {
       autore: giulia,
       data: "12/02/2024",
       ora: "15:12",
-      text: "Non so inviare il CV",
+      text: "sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam",
     },
     {
       autore: deborah,
       data: "12/02/2024",
       ora: "17:09",
-      text: `Chiedi a Augusto, ha elaborato un metodo che sfrutta l'intelligenza artificiale...`,
+      text: `ex ea commodi consequatur?`,
+    },
+    {
+      autore: giulia,
+      data: "12/02/2024",
+      ora: "14:03",
+      text: "vel illum qui dolorem eum fugiat quo voluptas",
+    },
+    {
+      autore: deborah,
+      data: "12/02/2024",
+      ora: "14:35",
+      text: "illo inventore veritatis et quasi architecto",
+    },
+    {
+      autore: giulia,
+      data: "12/02/2024",
+      ora: "15:12",
+      text: "adipisci velit, sed quia non numquam",
+    },
+    {
+      autore: deborah,
+      data: "12/02/2024",
+      ora: "17:09",
+      text: `unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...`,
     },
   ]);
 
@@ -54,9 +78,9 @@ const Commenti = () => {
   };
 
   return (
-    <div className="h-full overflow-auto bg-seventh flex flex-col justify-between ">
+    <div className="h-full flex flex-col overflow-auto bg-seventh justify-between ">
       <div className="report-title">Note</div>
-      <div className="flex flex-col lg:max-h-96">
+      <div className="flex flex-col gap-1 p-1">
         {messaggi.map((mex, index) => (
           <div
             key={index}
@@ -76,7 +100,7 @@ const Commenti = () => {
           </div>
         ))}
       </div>
-      <div className="my-1 flex flex-col items-end justify-end">
+      <div className="flex items-center justify-center p-2 gap-1 md:gap-2 text-tiny w-full h-1/5">
         <TextArea
           id="1"
           placeholder="Rispondi"

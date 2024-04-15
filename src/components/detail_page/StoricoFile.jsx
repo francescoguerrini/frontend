@@ -6,11 +6,25 @@ const StoricoFile = () => {
     "GNNDL23C21H143L.docx",
     "GennaroDeLucaCatasto.docx",
     "SGRGennaro.docx",
+    "GNNDL23C21H143L.docx",
+    "GennaroDeLucaCatasto.docx",
+    "SGRGennaro.docx",
+    "GNNDL23C21H143L.docx",
+    "GennaroDeLucaCatasto.docx",
+    "SGRGennaro.docx",
+    "GNNDL23C21H143L.docx",
+    "GennaroDeLucaCatasto.docx",
+    "SGRGennaro.docx",
+    "GNNDL23C21H143L.docx",
+    "GennaroDeLucaCatasto.docx",
+    "SGRGennaro.docx",
+    "GNNDL23C21H143L.docx",
+    "GennaroDeLucaCatasto.docx",
+    "SGRGennaro.docx",
   ];
   return (
     <div className="h-full flex flex-col overflow-auto bg-seventh justify-between">
       <div className="report-title">Storico dei File</div>
-
       <div className="flex flex-col gap-1 items-start p-1">
         {files.map((file, index) => (
           <div key={index} className="flex gap-2">

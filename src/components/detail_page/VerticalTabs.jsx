@@ -19,7 +19,7 @@ const VerticalTabs = () => {
   };
 
   return (
-    <div className="h-full w-full flex">
+    <div className="h-full w-full flex overflow-auto">
       <div className="flex flex-col">
         {tabs.map((tab, index) => (
           <button

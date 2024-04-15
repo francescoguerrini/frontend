@@ -9,19 +9,21 @@ import {
   TableCell,
   Chip,
   Avatar,
-  Pagination,
 } from "@nextui-org/react";
 import TableActions from "./TableActions";
 import TopContent from "./TopContent";
+import BottomContent from "./BottomContent";
+import { classNames } from "./ClassNames";
+
 import {
   columns,
   pratiche,
   statusOptions,
   statusColorMap,
   INITIAL_VISIBLE_COLUMNS,
-} from "./data";
+} from "../consts/table_data";
 
-export default function ListaOperazioni() {
+export default function ListaRichieste() {
   // filtro x search
   const [filterValue, setFilterValue] = useState("");
   // filtro x status
@@ -46,9 +48,8 @@ export default function ListaOperazioni() {
     setSelectedFilter(filter);
   }, []);
 
-  const handleCellAction = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
+  const handleCellAction = () => {
+    console.log("stop");
   };
 
   // _________________HEADER_COLUMNS_________________
@@ -91,7 +92,7 @@ export default function ListaOperazioni() {
     }
 
     return filteredpratiche;
-  }, [filterValue, statusFilter, hasSearchFilter]);
+  }, [filterValue, statusFilter, selectedFilter]);
 
   // _________________ITEMS_________________
 
@@ -199,15 +200,17 @@ export default function ListaOperazioni() {
         );
       case "status":
         return (
-          <Chip
-            className="capitalize border-none gap-1 text-default-600"
-            color={statusColorMap[pratica.status]}
-            size="sm"
-            variant="dot"
-          ></Chip>
+          <Tooltip placement="right" content={pratica.status}>
+            <Chip
+              className="capitalize border-none gap-1 text-default-600"
+              color={statusColorMap[pratica.status]}
+              size="sm"
+              variant="dot"
+            ></Chip>
+          </Tooltip>
         );
       case "actions":
-        return <TableActions top={false} />;
+        return <TableActions top={false} vertical={false} />;
       default:
         return cellValue;
     }
@@ -262,46 +265,16 @@ export default function ListaOperazioni() {
 
   const bottomContent = useMemo(() => {
     return (
-      <div className="py-2 px-2 flex justify-between items-center">
-        <Pagination
-          showControls
-          classNames={{
-            cursor: "bg-foreground text-background",
-          }}
-          color="default"
-          isDisabled={hasSearchFilter}
-          page={page}
-          total={pages}
-          variant="light"
-          onChange={setPage}
-        />
-        <span className="text-small text-default-400">
-          {selectedKeys === "all"
-            ? "All items selected"
-            : `${selectedKeys.size} of ${items.length} selected`}
-        </span>
-      </div>
+      <BottomContent
+        hasSearchFilter={hasSearchFilter}
+        page={page}
+        pages={pages}
+        selectedKeys={selectedKeys}
+        items={items}
+        setPage={setPage}
+      />
     );
-  }, [selectedKeys, items.length, page, pages, hasSearchFilter]);
-
-  const classNames = useMemo(
-    () => ({
-      wrapper: ["max-h-[382px]", "max-w-3xl"],
-      th: ["bg-transparent", "text-default-500", "border-b", "border-divider"],
-      td: [
-        // changing the rows border radius
-        // first
-        "group-data-[first=true]:first:before:rounded-none",
-        "group-data-[first=true]:last:before:rounded-none",
-        // middle
-        "group-data-[middle=true]:before:rounded-none",
-        // last
-        "group-data-[last=true]:first:before:rounded-none",
-        "group-data-[last=true]:last:before:rounded-none",
-      ],
-    }),
-    []
-  );
+  }, [hasSearchFilter, page, pages, selectedKeys, items, setPage]);
 
   // _________________TABLE_BODY_________________
 

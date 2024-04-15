@@ -13,7 +13,7 @@ import {
   Tooltip,
 } from "@nextui-org/react";
 
-import { FiMail, FiLink } from "react-icons/fi";
+import { FiLink } from "react-icons/fi";
 
 export default function VediRichiesteCollegateModal({ content }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
