@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/react";
 import { FiSettings, FiUser } from "react-icons/fi";
 
@@ -28,15 +28,53 @@ const Stepper = () => {
       step: "Evasione",
       descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
     },
+    {
+      step: "Registrazione richiesta",
+      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
+    },
+    {
+      step: "Assegnato a te",
+      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
+    },
+    {
+      step: "Chiamata Cerved",
+      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
+    },
+    {
+      step: "Redazione 1",
+      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
+    },
+    {
+      step: "Verifica Manuale",
+      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
+    },
+    {
+      step: "Evasione",
+      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
+    },
   ];
-  const [currentStep, setCurrentStep] = useState(2);
+  const [currentStep, setCurrentStep] = useState(8);
   const [completed, setCompleted] = useState(false);
+  const currentStepRef = useRef(null);
+
+  useEffect(() => {
+    if (currentStepRef.current) {
+      currentStepRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [currentStep]);
 
   return (
-    <div className="h-full flex flex-col bg-seventh xl:flex-col items-center text-slate-600 rounded-md p-1 pt-[1rem] overflow-auto">
-      <div className="h-[90%] ">
+    <div className="h-full flex flex-col bg-seventh items-center text-slate-600 rounded-md overflow-auto gap-4">
+      <div className="">
         {events.map((event, i) => (
-          <div key={i} className={`flex flex-col items-center text-slate-600 `}>
+          <div
+            key={i}
+            ref={i === currentStep - 1 ? currentStepRef : null}
+            className={`flex flex-col items-center text-slate-600 `}
+          >
             <div className="flex gap-1 items-center">
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center border border-slate-400 mt-1 ${
@@ -80,12 +118,12 @@ const Stepper = () => {
           </div>
         ))}
       </div>
-      <div className="w-full h-[10%] text-tiny flex flex-col lg:flex-row items-center justify-evenly gap-1">
+      <div className="w-full text-tiny flex lg:flex-row items-center justify-evenly gap-1 mb-4">
         <button
           className={` ${
             completed
               ? "bg-rose-100 text-rose-700 line-through"
-              : "bg-rose-700 text-white rounded py-1 px-2 border border-rose-700 hover:bg-rose-50 hover:text-rose-700 transition-all duration-300"
+              : "bg-rose-700 text-white rounded p-1 border border-rose-700 hover:bg-rose-50 hover:text-rose-700 transition-all duration-300"
           }`}
           onClick={() => {
             !completed && setCurrentStep((prev) => prev - 1);

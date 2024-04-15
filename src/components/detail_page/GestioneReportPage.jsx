@@ -1,5 +1,5 @@
 import Steps from "./Steps";
-import Actions from "./Actions";
+import TableActions from "../table/TableActions";
 import DettagliPratica from "./DettagliPratica";
 import StoricoFile from "./StoricoFile";
 import Storico from "./Storico";
@@ -20,7 +20,7 @@ const GestioneReportPage = () => {
         <Steps />
       </div>
       <div className="col-span-3 lg:row-span-8 lg:col-start-7 xl:col-start-9 xl:row-span-10">
-        <Actions />
+        <TableActions top={false} vertical={true} />
       </div>
 
       <div className="row-span-4 row-start-4 lg:row-start-5 lg:col-span-2 xl:row-start-3 xl:row-span-8">

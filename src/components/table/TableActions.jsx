@@ -8,46 +8,91 @@ import {
   FiLink,
   FiLayers,
   FiZoomIn,
+  FiGrid,
 } from "react-icons/fi";
-import ActionModal from "./table_modals/ActionModal";
-import TestModal from "./table_modals/TestModal";
+import RichiesteCollegate from "../detail_page/RichiesteCollegate";
 import AssegnazioneModal from "./table_modals/AssegnazioneModal";
 import AccertamentiModal from "./table_modals/AccertamentiModal";
+import CambioStatoModal from "./table_modals/CambioStatoModal";
+import CambioPriorita from "./table_modals/CambioPrioritaModal";
+import AssegnaTagModal from "./table_modals/AssegnaTagModal";
+import CambiaNomeFileModal from "./table_modals/CambioNomeFileModal";
+import VediRichiesteCollegateModal from "./table_modals/VediRichiesteCollegateModal";
+import AggiungiNotaModal from "./table_modals/AggiungiNotaModal";
+import GestioneReportModal from "./table_modals/GestioneReportModal";
 
-const actions = [
-  { event: "Cambia Stato", icon: FiCircle },
-  { event: "Cambia Nome File", icon: FiFileText },
-  { event: "Cambia Priorità", icon: FiAlertTriangle },
-  { event: "Aggiungi Nota", icon: FiMusic },
-  { event: "Assegna Tag", icon: FiLink },
-  { event: "Visualizza Richieste Collegate", icon: FiLayers },
-];
 const assegnazione = { event: "Riassegna", icon: FiShuffle };
 const accertamenti = { event: "Accertamenti", icon: FiZoomIn };
-// const test = { event: "Test", icon: FiMeh };
+const cambiaStato = { event: "Cambia Stato", icon: FiCircle };
+const cambioPriorita = { event: "Cambia Priorità", icon: FiAlertTriangle };
+const assegnaTag = { event: "Assegna Tag", icon: FiLink };
+const cambiaNomeFile = { event: "Cambia Nome File", icon: FiFileText };
+const richiesteCollegate = {
+  event: "Visualizza Richieste Collegate",
+  icon: FiLayers,
+};
+const gestioneReport = { event: "Vedi dettagli richiesta", icon: FiGrid };
 
-const TableActions = ({ top }) => {
+const aggiungiNota = { event: "Aggiungi Nota", icon: FiMusic };
+
+const TableActions = ({ top, vertical }) => {
   return (
-    <div className="">
+    <div className="h-full w-full items-center justify-evenly">
       <div
-        className={` ${
+        className={` flex  ${
           top
-            ? "flex gap-1 lg:gap-3 items-center justify-center mb-1 lg:mb-0"
-            : "lg:flex lg:items-center gap-[.1rem]"
+            ? " gap-1 items-center"
+            : " gap-[.1rem] items-center justify-center flex-wrap"
+        } ${
+          vertical
+            ? "w-full items-center justify-between lg:border-b lg:flex-wrap lg:gap-1 py-4 lg:py-8"
+            : ""
         }`}
       >
-        <AssegnazioneModal content={assegnazione} />
-        <AccertamentiModal content={accertamenti} />
-        {actions.map((action, index) => (
-          <ActionModal key={index} content={action} />
-        ))}
-        {/* <TestModal content={accertamenti} /> */}
+        <div>
+          <AssegnazioneModal content={assegnazione} />
+        </div>
+        <div>
+          <AccertamentiModal content={accertamenti} />
+        </div>
+        <div>
+          <CambioStatoModal content={cambiaStato} />
+        </div>
+        <div>
+          <CambioPriorita content={cambioPriorita} />
+        </div>
+
+        <div className={`${top ? "hidden" : ""}`}>
+          <CambiaNomeFileModal content={cambiaNomeFile} />
+        </div>
+        <div>
+          <AggiungiNotaModal content={aggiungiNota} />
+        </div>
+        <div className={`${top ? "hidden" : ""}`}>
+          <VediRichiesteCollegateModal content={richiesteCollegate} />
+        </div>
+        <div>
+          <AssegnaTagModal content={assegnaTag} />
+        </div>
+        <div className={`${top ? "hidden" : ""}`}>
+          <GestioneReportModal content={gestioneReport} />
+        </div>
+      </div>
+      <div
+        className={`${
+          vertical
+            ? "hidden lg:h-1/2 lg:flex lg:items-center lg:justify-center lg:p-1 lg:overflow-auto lg:flex-grow"
+            : "hidden"
+        }`}
+      >
+        <RichiesteCollegate />
       </div>
     </div>
   );
 };
 TableActions.propTypes = {
   top: PropTypes.bool,
+  vertical: PropTypes.bool,
 };
 
 export default TableActions;
