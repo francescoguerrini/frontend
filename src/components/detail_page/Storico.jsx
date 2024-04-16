@@ -1,97 +1,23 @@
+import { useEffect, useRef } from "react";
+import { messaggi } from "../consts/mockDatas";
+
 const Storico = () => {
-  const messaggi = [
-    {
-      autore: "Giulia",
-      data: "12/02/2024",
-      ora: "11:14",
-      evento: "Ha assegnato questa pratica a se stessa.",
-    },
-    {
-      autore: "Augusto",
-      data: "12/02/2024",
-      ora: "11:24",
-      evento: "Step 2 - Chiamata Cerved .",
-    },
-    {
-      autore: "Valentina",
-      data: "12/02/2024",
-      ora: "12:44",
-      evento: "Chiamata Cerved completata. I dati sono ora disponibili",
-    },
-    {
-      autore: "Giulia",
-      data: "12/02/2024",
-      ora: "15:06",
-      evento: "Ha completato lo step di lavorazione manuale",
-    },
-    {
-      autore: "Giulia",
-      data: "12/02/2024",
-      ora: "17:01",
-      evento: `Evasione avvenuta con successo`,
-    },
-    {
-      autore: "Giulia",
-      data: "12/02/2024",
-      ora: "17:01",
-      evento: `Evasione avvenuta con successo`,
-    },
-    {
-      autore: "Valentina",
-      data: "12/02/2024",
-      ora: "12:44",
-      evento: "Chiamata Cerved completata. I dati sono ora disponibili",
-    },
-    {
-      autore: "Giulia",
-      data: "12/02/2024",
-      ora: "15:06",
-      evento: "Ha completato lo step di lavorazione manuale",
-    },
-    {
-      autore: "Giulia",
-      data: "12/02/2024",
-      ora: "17:01",
-      evento: `Evasione avvenuta con successo`,
-    },
-    {
-      autore: "Giulia",
-      data: "12/02/2024",
-      ora: "17:01",
-      evento: `Evasione avvenuta con successo`,
-    },
-    {
-      autore: "Valentina",
-      data: "12/02/2024",
-      ora: "12:44",
-      evento: "Chiamata Cerved completata. I dati sono ora disponibili",
-    },
-    {
-      autore: "Giulia",
-      data: "12/02/2024",
-      ora: "15:06",
-      evento: "Ha completato lo step di lavorazione manuale",
-    },
-    {
-      autore: "Giulia",
-      data: "12/02/2024",
-      ora: "17:01",
-      evento: `Evasione avvenuta con successo`,
-    },
-    {
-      autore: "Giulia",
-      data: "12/02/2024",
-      ora: "17:01",
-      evento: `Evasione avvenuta con successo`,
-    },
-  ];
+  const inputRef = useRef(null);
+  useEffect(() => {
+    // Scrolla alla fine della lista dei messaggi quando cambia la nuovaNota
+    if (inputRef.current) {
+      inputRef.current.scrollIntoView({ behavior: "auto", block: "end" });
+    }
+  }, [inputRef]);
+
   return (
     <div className="h-full w-full flex flex-col overflow-auto bg-seventh justify-between">
-      <div className="report-title">Storico/log</div>
+      {/* <div className="report-title">Storico/log</div> */}
       <div className="h-full flex flex-col">
         {messaggi.map((mex, index) => (
           <div
             key={index}
+            ref={index === messaggi.length - 1 ? inputRef : null}
             className={`rounded px-[.2rem] flex text-sm border-b ${
               index % 2 === 0 ? "bg-sky-100" : ""
             }`}

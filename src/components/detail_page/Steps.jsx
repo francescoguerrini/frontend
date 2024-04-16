@@ -1,58 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/react";
 import { FiSettings, FiUser } from "react-icons/fi";
+import { events } from "../consts/mockDatas";
 
 const Stepper = () => {
-  const events = [
-    {
-      step: "Registrazione richiesta",
-      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
-    },
-    {
-      step: "Assegnato a te",
-      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
-    },
-    {
-      step: "Chiamata Cerved",
-      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
-    },
-    {
-      step: "Redazione 1",
-      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
-    },
-    {
-      step: "Verifica Manuale",
-      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
-    },
-    {
-      step: "Evasione",
-      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
-    },
-    {
-      step: "Registrazione richiesta",
-      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
-    },
-    {
-      step: "Assegnato a te",
-      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
-    },
-    {
-      step: "Chiamata Cerved",
-      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
-    },
-    {
-      step: "Redazione 1",
-      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
-    },
-    {
-      step: "Verifica Manuale",
-      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
-    },
-    {
-      step: "Evasione",
-      descrizione: "lorem ipsum sit amet nunquam olit solem tuum vacui rosae",
-    },
-  ];
   const [currentStep, setCurrentStep] = useState(8);
   const [completed, setCompleted] = useState(false);
   const currentStepRef = useRef(null);
@@ -118,12 +69,12 @@ const Stepper = () => {
           </div>
         ))}
       </div>
-      <div className="w-full text-tiny flex lg:flex-row items-center justify-evenly gap-1 mb-4">
+      <div className="w-full text-tiny grid grid-cols-2 xl:flex items-center justify-evenly mb-4 gap-[.1rem]">
         <button
           className={` ${
             completed
               ? "bg-rose-100 text-rose-700 line-through"
-              : "bg-rose-700 text-white rounded p-1 border border-rose-700 hover:bg-rose-50 hover:text-rose-700 transition-all duration-300"
+              : "bg-rose-700 text-white rounded py-1 border border-rose-700 hover:bg-rose-50 hover:text-rose-700 transition-all duration-300"
           }`}
           onClick={() => {
             !completed && setCurrentStep((prev) => prev - 1);
@@ -134,7 +85,7 @@ const Stepper = () => {
         </button>
         <button
           disabled={completed}
-          className={`bg-emerald-600 text-white rounded py-1 px-2 border border-emerald-600 ${
+          className={`bg-emerald-600 text-white rounded py-1 border border-emerald-600 ${
             !completed ? "hover:bg-emerald-50 hover:text-emerald-600" : ""
           } transition-all duration-300`}
           onClick={() => {
@@ -145,7 +96,7 @@ const Stepper = () => {
         >
           {completed ? "Completato!" : "Successivo"}
         </button>
-        <button className="bg-sky-700 text-white rounded py-1 px-2 border border-sky-700 hover:bg-sky-50 hover:text-sky-700 transition-all duration-300">
+        <button className="bg-sky-700 text-white rounded py-1 border border-sky-700 hover:bg-sky-50 hover:text-sky-700 transition-all duration-300">
           Ev. Parziale
         </button>
       </div>

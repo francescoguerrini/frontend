@@ -95,3 +95,150 @@ background-color: var(--seventh-color);
   font-weight: bold;
   margin-bottom: .4rem;
 }
+
+/* Per Chrome, Safari e altri browser basati su WebKit */
+::-webkit-scrollbar {
+  width: 2px; /* Larghezza della scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cacaca;
+  /*Coloredel"pulsante"dellascrollbar*/border-radius: 5px;
+   /* Bordo arrotondato */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #e7e7e7; /* Colore della traccia della scrollbar */
+}
+
+/* Per Firefox */
+::-moz-scrollbar {
+  width: 2px;
+}
+
+::-moz-scrollbar-thumb {
+  background-color:#cacaca;
+  border-radius: 5px;
+}
+
+::-moz-scrollbar-track {
+  background-color:   #e7e7e7;
+}
+
+.custom-grid{
+  display: grid;
+  grid-template-columns: repeat(100, 1fr);
+  grid-template-rows: repeat(100, 1fr);
+  height: 100vh;
+}
+.grid-item-1{
+  border-bottom: 7px solid black;
+  background-color: var(--seventh-color);
+  grid-row-start: 1; /* Inizia alla riga */
+  grid-row-end: span 22; /* Si estende per */
+  grid-column-start: 1; /* Inizia alla colonna */
+  grid-column-end: span 68; /* Si estende per */
+}
+.grid-item-2{
+  background-color: var(--seventh-color);
+  padding: .3rem;  
+  grid-row-start: 22; 
+  grid-row-end: span 79; 
+  grid-column-start: 1; 
+  grid-column-end: span 22; 
+}
+.grid-item-3{
+  background-color: var(--seventh-color);
+  padding: .3rem;  
+  grid-row-start: 22; 
+  grid-row-end: span 79; 
+  grid-column-start: 22; 
+  grid-column-end: span 25; 
+}
+.grid-item-4{
+  background-color: var(--seventh-color);
+  padding: .3rem;  
+  grid-row-start: 22; 
+  grid-row-end: span 79; 
+  grid-column-start: 47; 
+  grid-column-end: span 21;
+}
+.grid-item-5{
+  padding-left: .5rem;
+  background-color: var(--seventh-color);
+  padding-top: 1rem;
+  grid-row-start: 1; 
+  grid-row-end: span 100; 
+  grid-column-start: 67; 
+  grid-column-end: span 18;
+}
+.grid-item-6{
+  padding: .5rem;
+  background-color: var(--seventh-color);
+  grid-row-start: 1; 
+  grid-row-end: span 100; 
+  grid-column-start: 85; 
+  grid-column-end: span 16;
+}
+.grid-item-7{
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .grid-item-1{
+  border-bottom: 1px solid black;
+  background-color: var(--seventh-color);
+  grid-row-start: 1; /* Inizia alla riga */
+  grid-row-end: span 29; /* Si estende per */
+  grid-column-start: 1; /* Inizia alla colonna */
+  grid-column-end: span 70; /* Si estende per */
+}
+.grid-item-2{
+  background-color: var(--seventh-color);
+  padding: .1rem;  
+  grid-row-start: 30; 
+  grid-row-end: span 60; 
+  grid-column-start: 1; 
+  grid-column-end: span 24; 
+}
+.grid-item-3{
+  background-color: var(--seventh-color);
+  padding: .1rem;  
+  grid-row-start: 30; 
+  grid-row-end: span 60; 
+  grid-column-start: 24; 
+  grid-column-end: span 25; 
+}
+.grid-item-4{
+ display: none;
+}
+.grid-item-5{
+  padding-left: .1rem;
+  background-color: var(--seventh-color);
+  padding-top: .1rem;
+  grid-row-start: 1; 
+  grid-row-end: span 89; 
+  grid-column-start: 70; 
+  grid-column-end: span 31;
+}
+.grid-item-6{
+  padding-left: .1rem;
+  background-color: var(--seventh-color);
+  grid-row-start: 90; 
+  grid-row-end: span 10; 
+  grid-column-start: 1; 
+  grid-column-end: span 100;
+}
+.grid-item-7{
+  display: grid;
+  background-color: var(--seventh-color); 
+  grid-row-start: 30; 
+  grid-row-end: span 60; 
+  grid-column-start: 49; 
+  grid-column-end: span 21;
+}
+}

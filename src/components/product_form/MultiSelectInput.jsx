@@ -10,6 +10,7 @@ export default function MultiSelectInput({
     <div className="h-full flex flex-col items-start">
       <div className="label">{label}</div>
       <Select
+        aria-label="label"
         items={item_list}
         placeholder=""
         className="max-w-xs bg-white rounded-md"

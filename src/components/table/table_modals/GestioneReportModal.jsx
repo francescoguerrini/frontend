@@ -20,7 +20,7 @@ export default function GestioneReportModal({ content }) {
       <Tooltip content={content.event}>
         <button
           onClick={handleOpen}
-          className="p-[.15rem] lg:p-[.4rem] bg-sky-500 hover:bg-sky-400 text-white rounded-full"
+          className="p-[.2rem] lg:p-[.3rem] bg-sky-500 hover:bg-sky-400 text-white rounded-full"
         >
           {<content.icon />}
         </button>
@@ -31,6 +31,8 @@ export default function GestioneReportModal({ content }) {
         size="full"
         classNames={{
           body: "h-[100vh]",
+          closeButton:
+            "bg-seventh text-slate-800 text-xl hover:bg-rose-700 hover:text-white border border-slate-800 rounded-full active:bg-white/10",
         }}
         scrollBehavior="outside"
       >
