@@ -15,7 +15,7 @@ import Statistiche from "./pages/BD_Statistiche";
 import Monitoraggio from "./pages/BD_Monitoraggio";
 import RichiestaServizio from "./pages/BD_RichiestaReport";
 import RicercaAnagrafica from "./pages/BD_RicercaAnagrafica";
-import Calendario from "./pages/Calendario";
+import Calendario from "./pages/BD_Calendario";
 import LoginPage from "./pages/BD_LoginPage";
 import LogoutPage from "./pages/BD_LogoutPage";
 
@@ -28,7 +28,7 @@ function App() {
       <Router>
         <Layout>
           <Routes>
-            <Route path="/" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route
               path="/password-dimenticata"
               element={<PasswordDimenticata />}

@@ -37,11 +37,11 @@ const aggiungiNota = { event: "Aggiungi Nota", icon: FiMusic };
 
 const TableActions = ({ top, vertical }) => {
   return (
-    <div className="h-full w-full items-center justify-evenly">
+    <div className="h-full w-full">
       <div
-        className={` flex  ${
+        className={` w-full flex  ${
           top
-            ? " gap-1 items-center"
+            ? " gap-4 items-center justify-evenly"
             : " gap-[.1rem] items-center justify-center flex-wrap"
         } ${
           vertical
@@ -74,7 +74,7 @@ const TableActions = ({ top, vertical }) => {
         <div>
           <AssegnaTagModal content={assegnaTag} />
         </div>
-        <div className={`${top ? "hidden" : ""}`}>
+        <div className={`${top ? "hidden" : ""} ${vertical ? "hidden" : ""}`}>
           <GestioneReportModal content={gestioneReport} />
         </div>
       </div>

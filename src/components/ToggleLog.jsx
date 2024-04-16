@@ -24,7 +24,7 @@ const ToggleLog = () => {
           className="bg-seventh text-[#0b1a2e] lg:hidden"
         >
           <Link
-            href="/"
+            href="/login"
             className="flex items-center bg-seventh hover:drop-shadow-xl rounded-lg text-teal-600 text-xl p-1 lg:p-[1px] transition-all duration-100 hover:ml-2"
           >
             <FiLogIn className="" />

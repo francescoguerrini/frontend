@@ -13,7 +13,7 @@ import {
   Tooltip,
 } from "@nextui-org/react";
 
-import { FiMail, FiLink } from "react-icons/fi";
+import { FiLink } from "react-icons/fi";
 
 export default function AggiungiNotaModal({ content }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -29,7 +29,7 @@ export default function AggiungiNotaModal({ content }) {
       <Tooltip content={content.event}>
         <button
           onClick={onOpen}
-          className="p-[.15rem] lg:p-[.4rem] bg-sky-500 hover:bg-sky-400 text-white rounded-full"
+          className="p-[.2rem] lg:p-[.3rem] bg-sky-500 hover:bg-sky-400 text-white rounded-full"
         >
           {<content.icon />}
         </button>

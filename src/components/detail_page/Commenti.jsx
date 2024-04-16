@@ -1,67 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Avatar } from "@nextui-org/react";
+import { note } from "../consts/mockDatas";
 import TextArea from "./TextArea";
 import deborah from "../../assets/deborah.jpg";
 import giulia from "../../assets/giulia_eredia.jpg";
 
 const Commenti = () => {
   const [nuovaNota, setNuovaNota] = useState("");
-  const [messaggi, setMessaggi] = useState([
-    {
-      autore: deborah,
-      data: "12/02/2024",
-      ora: "13:58",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
-    },
-    {
-      autore: giulia,
-      data: "12/02/2024",
-      ora: "14:03",
-      text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
-    },
-    {
-      autore: deborah,
-      data: "12/02/2024",
-      ora: "14:35",
-      text: "qui dolorem ipsum quia dolor sit amet",
-    },
-    {
-      autore: giulia,
-      data: "12/02/2024",
-      ora: "15:12",
-      text: "sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam",
-    },
-    {
-      autore: deborah,
-      data: "12/02/2024",
-      ora: "17:09",
-      text: `ex ea commodi consequatur?`,
-    },
-    {
-      autore: giulia,
-      data: "12/02/2024",
-      ora: "14:03",
-      text: "vel illum qui dolorem eum fugiat quo voluptas",
-    },
-    {
-      autore: deborah,
-      data: "12/02/2024",
-      ora: "14:35",
-      text: "illo inventore veritatis et quasi architecto",
-    },
-    {
-      autore: giulia,
-      data: "12/02/2024",
-      ora: "15:12",
-      text: "adipisci velit, sed quia non numquam",
-    },
-    {
-      autore: deborah,
-      data: "12/02/2024",
-      ora: "17:09",
-      text: `unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...`,
-    },
-  ]);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    // Scrolla alla fine della lista dei messaggi quando cambia la nuovaNota
+    if (inputRef.current) {
+      inputRef.current.scrollIntoView({ behavior: "auto", block: "end" });
+    }
+  }, [inputRef]);
+
+  const [messaggi, setMessaggi] = useState(note);
 
   const aggiungiNota = () => {
     if (nuovaNota.trim() === "") return;
@@ -88,7 +43,12 @@ const Commenti = () => {
           >
             <div className="flex flex-col justify-between pb-[.2rem] border-r">
               <div>
-                <Avatar size="sm" src={mex.autore} />
+                {" "}
+                {mex.autore === "deborah" ? (
+                  <Avatar size="sm" src={deborah} />
+                ) : (
+                  <Avatar size="sm" src={giulia} />
+                )}
               </div>
             </div>
             <div className="text-[.6rem] p-1 flex flex-col justify-between">
@@ -100,7 +60,10 @@ const Commenti = () => {
           </div>
         ))}
       </div>
-      <div className="flex items-center justify-center p-2 gap-1 md:gap-2 text-tiny w-full h-1/5">
+      <div
+        ref={inputRef}
+        className="flex items-center justify-center p-2 gap-1 md:gap-2 text-tiny w-full h-1/5"
+      >
         <TextArea
           id="1"
           placeholder="Rispondi"

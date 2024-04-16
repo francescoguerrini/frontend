@@ -20,7 +20,7 @@ const DettagliPratica = () => {
     <div className="h-full w-full flex flex-col justify-evenly bg-seventh overflow-auto">
       <div className="flex justify-between">
         <div className="report-title">Pratica: 11422</div>
-        <div className="flex items-center justify-center pr-4">
+        <div className="flex items-center justify-center pr-8">
           <div>
             <TooltipAvatar
               src={deborah}
@@ -51,13 +51,13 @@ const DettagliPratica = () => {
         </div>
       </div>
 
-      <div className="text-sm bg-seventh rounded-md flex flex-col justify-evenly xl:grid xl:grid-cols-3 xl:grid-flow-row">
+      <div className="text-sm bg-seventh rounded-md flex flex-col justify-evenly md:grid md:grid-cols-3 md:grid-flow-row">
         {infos.map((info, index) => (
           <div
             key={index}
             className={`${
               index % 2 === 0 ? "bg-sky-100" : ""
-            } flex justify-between items-center p-[2px] text-[.5rem] lg:text-tiny`}
+            } flex justify-between items-center p-[2px] text-[.5rem] md:text-tiny`}
           >
             <div className="font-bold w-1/2"> {info.text}: </div>
             <div className="font-normal w-1/2">{info.content}</div>

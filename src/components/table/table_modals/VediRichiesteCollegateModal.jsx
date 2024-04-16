@@ -29,7 +29,7 @@ export default function VediRichiesteCollegateModal({ content }) {
       <Tooltip content={content.event}>
         <button
           onClick={onOpen}
-          className="p-[.15rem] lg:p-[.4rem] bg-sky-500 hover:bg-sky-400 text-white rounded-full"
+          className="p-[.2rem] lg:p-[.3rem] bg-sky-500 hover:bg-sky-400 text-white rounded-full"
         >
           {<content.icon />}
         </button>
