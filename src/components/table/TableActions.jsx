@@ -35,7 +35,7 @@ const gestioneReport = { event: "Vedi dettagli richiesta", icon: FiGrid };
 
 const aggiungiNota = { event: "Aggiungi Nota", icon: FiMusic };
 
-const TableActions = ({ top, vertical }) => {
+const TableActions = ({ top, vertical, itemList }) => {
   return (
     <div className="h-full w-full">
       <div
@@ -50,7 +50,7 @@ const TableActions = ({ top, vertical }) => {
         }`}
       >
         <div>
-          <AssegnazioneModal content={assegnazione} />
+          <AssegnazioneModal content={assegnazione} itemList={itemList} />
         </div>
         <div>
           <AccertamentiModal content={accertamenti} />
@@ -93,6 +93,7 @@ const TableActions = ({ top, vertical }) => {
 TableActions.propTypes = {
   top: PropTypes.bool,
   vertical: PropTypes.bool,
+  itemList: PropTypes.arrayOf(PropTypes.any),
 };
 
 export default TableActions;
