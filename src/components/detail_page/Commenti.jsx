@@ -74,7 +74,7 @@ const Commenti = () => {
         <div className="">
           <button
             onClick={aggiungiNota}
-            className="bg-rose-700 text-tiny text-white rounded p-[.2rem]"
+            className="bg-rose-700 text-tiny text-white rounded border border-rose-700 p-[.2rem] hover:bg-rose-50 hover:text-rose-700 transition-all duration-300"
           >
             Aggiungi Nota
           </button>

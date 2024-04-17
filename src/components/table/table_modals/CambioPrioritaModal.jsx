@@ -13,6 +13,7 @@ import {
   SelectItem,
   Tooltip,
 } from "@nextui-org/react";
+import BoxPraticheSelezionate from "./BoxPraticheSelezionate";
 
 export default function CambioPriorita({ content }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -38,19 +39,12 @@ export default function CambioPriorita({ content }) {
           <ModalHeader>Cambia Priorità</ModalHeader>
           <ModalBody>
             <div>
-              <div>Pratiche Selezionate</div>
-              <div className="border flex flex-wrap gap-x-1 text-slate-700 text-sm">
-                <div>Mario Rossi</div>
-                <div>Luca Bianchi</div>
-                <div>Gianni Verdi</div>
-                <div>Peppe Neri</div>
-              </div>
+              <div className="text-sm">Pratiche Selezionate</div>
+              <BoxPraticheSelezionate />
             </div>
             <div>
-              <div>Livello Priorità Attuale</div>
-              <div className="border flex flex-wrap gap-x-1 text-slate-700 text-sm">
-                Urgente
-              </div>
+              <div className="text-sm">Livello Priorità Attuale: </div>
+              <div className="text-sky-700">Urgente</div>
             </div>
             <Select
               label="Scegli nuovo livello priorità"

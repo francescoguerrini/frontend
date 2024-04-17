@@ -27,16 +27,16 @@ const INITIAL_VISIBLE_COLUMNS = [
 ];
 
 const columns = [
-  { name: "ID", uid: "id", width: "20px" },
-  { name: "Prodotto", uid: "email", width: "120px" },
-  { name: "Cliente", uid: "role", width: "40px" },
-  { name: "Resp/Operat", uid: "name", width: "90px" },
-  { name: "Richiesta", uid: "data_richiesta", width: "100px" },
-  { name: "Scadenza", uid: "data_scadenza", width: "100px" },
-  { name: "Stato", uid: "status", width: "50px" },
-  { name: "Ev.Format", uid: "formato_evasione", width: "60px" },
-  { name: "Azioni", uid: "actions", width: "" },
-  { name: "Posizioni", uid: "age", width: "60px" },
+  { name: "ID", uid: "id", width: "6rem" },
+  { name: "Prodotto", uid: "email", width: "20rem" },
+  { name: "Cliente", uid: "role", width: "10rem" },
+  { name: "Resp/Operat", uid: "name", width: "10rem" },
+  { name: "Richiesta", uid: "data_richiesta", width: "8rem" },
+  { name: "Scadenza", uid: "data_scadenza", width: "8rem" },
+  { name: "Stato", uid: "status", width: "6rem" },
+  { name: "Ev.Format", uid: "formato_evasione", width: "6rem" },
+  { name: "Azioni", uid: "actions", width: "28rem" },
+  { name: "Posizioni", uid: "age", width: "6rem" },
 ];
 
 const statusOptions = [

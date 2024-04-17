@@ -13,6 +13,7 @@ import {
   SelectItem,
   Tooltip,
 } from "@nextui-org/react";
+import BoxPraticheSelezionate from "./BoxPraticheSelezionate";
 
 export default function AccertamentiModal({ content }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -24,6 +25,25 @@ export default function AccertamentiModal({ content }) {
   ];
   const [values, setValues] = useState(new Set([]));
   const [confirmation, setConfirmation] = useState(true);
+  const lista = [
+    "Mario Rossi",
+    "Ettore Ponti",
+    "Ludovico Ariosto",
+    "Torquato Tasso",
+    "Felice Lope De Vega",
+    "Marzio Della Valle",
+    "Mario Maria MArconi",
+    "Ugo Tognazzi",
+    "SenGiorgio Acremano",
+    "Mirko Fusetti",
+    "Gennaro Brambilla",
+    "Stefano Stefanini",
+    "Farinata Degli Uberti",
+    "Piero Della Francesca",
+    "Mauro Mariotti",
+    "Ernesto Che Guevara",
+    "Pierfilippo Arminio",
+  ];
 
   return (
     <>
@@ -40,15 +60,8 @@ export default function AccertamentiModal({ content }) {
           <ModalHeader>Accertamenti</ModalHeader>
           <ModalBody>
             <div>
-              <div>Pratiche Selezionate</div>
-              <div className="border flex flex-wrap gap-x-1 text-slate-700 text-sm">
-                <div>Mario Rossi</div>
-                <div>Luca Bianchi</div>
-                <div>Gianni Verdi</div>
-                <div>Peppe Neri</div>
-                <div>Mimmo Azzurri</div>
-                <div>Ettore Viola</div>
-              </div>
+              <div className="text-sm">Pratiche Selezionate</div>
+              <BoxPraticheSelezionate content={lista} />
             </div>
             <Select
               selectionMode="multiple"
@@ -76,7 +89,8 @@ export default function AccertamentiModal({ content }) {
                     {Array.from(values).join(", ")}
                   </p>{" "}
                   <p>
-                    da eseguire su <span className="text-amber-600">6</span>{" "}
+                    da eseguire su{" "}
+                    <span className="text-amber-600">{lista.length} </span>
                     pratiche
                   </p>
                 </p>

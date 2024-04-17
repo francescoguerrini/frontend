@@ -308,7 +308,7 @@ export default function ListaRichieste() {
             <TableColumn
               key={column.uid}
               allowsSorting={column.sortable}
-              style={{ minWidth: column.width }}
+              style={{ width: column.width }}
             >
               <div
                 className={`h-full w-full flex items-center ${
