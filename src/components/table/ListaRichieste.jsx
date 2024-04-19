@@ -54,10 +54,17 @@ export default function ListaRichieste() {
   const handleKeySelection = useCallback(
     (value) => {
       setSelectedKeys(value);
-      console.log(value.currentKey);
-      dispatch(edit(Array.from(selectedKeys)));
+      console.log(value);
+      const keysArray = Array.from(value).map((key) => String(key));
+      try {
+        JSON.stringify(keysArray);
+      } catch (error) {
+        console.error("I dati non sono serializzabili:", keysArray);
+        return;
+      }
+      dispatch(edit(keysArray));
     },
-    [dispatch, selectedKeys]
+    [dispatch]
   );
 
   const handleCellAction = () => {

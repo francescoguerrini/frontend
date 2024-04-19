@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { edit } from "./selectedRowsActions";
 
-const initialState = [131, 22];
+const initialState = [];
 
 export const selectedRowsReducer = createReducer(initialState, (builder) => {
   builder.addCase(edit, (state, action) => {
