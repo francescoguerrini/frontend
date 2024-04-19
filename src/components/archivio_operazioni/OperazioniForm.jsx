@@ -37,10 +37,10 @@ const OperazioniForm = () => {
         </div>
       </div>
       <div className="w-full flex gap-4 items-center justify-end pr-8">
-        <button className="bg-rose-600 text-white py-1 px-2 rounded-md border border-rose-600 hover:border-rose-600 hover:bg-gradient-to-tl from-rose-300 to rose-800">
+        <button className="bg-rose-700 text-white py-1 px-2 rounded-md border border-rose-700 hover:bg-rose-50 hover:text-rose-700 transition-all duration-300">
           Cancella
         </button>
-        <button className="bg-rose-600 text-white py-1 px-2 rounded-md border border-rose-600 hover:border-rose-600 hover:bg-gradient-to-tl from-rose-300 to rose-800">
+        <button className="bg-rose-700 text-white py-1 px-2 rounded-md border border-rose-700 hover:bg-rose-50 hover:text-rose-700 transition-all duration-300">
           Invia
         </button>
       </div>

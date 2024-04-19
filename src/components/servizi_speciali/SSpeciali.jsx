@@ -34,7 +34,7 @@ const SSpeciali = () => {
                   Effettua il download del file da utilizzare per inserire i
                   dati di input
                 </div>
-                <button className="rounded-md border-2 border-rose-700 text-rose-700 py-1 px-5 text-[.6rem] my-2 hover:bg-rose-700 hover:text-white">
+                <button className="rounded-md border-2 border-rose-700 text-rose-700 py-1 px-5 text-[.6rem] my-2 hover:bg-rose-700 hover:text-white transition-all duration-300">
                   SCARICA MODELLO
                 </button>
               </div>

@@ -13,8 +13,9 @@ import {
   SelectItem,
   Tooltip,
 } from "@nextui-org/react";
+import BoxPraticheSelezionate from "./BoxPraticheSelezionate";
 
-export default function ActionModal({ content }) {
+export default function ActionModal({ content, itemList }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedResponsabile, setSelectedResponsabile] = useState("");
   const [selectedAssegnatario, setSelectedAssegnatario] = useState("");
@@ -46,6 +47,7 @@ export default function ActionModal({ content }) {
         <ModalContent>
           <ModalHeader>Riassegna</ModalHeader>
           <ModalBody>
+            <BoxPraticheSelezionate practice_list={itemList} />
             <Select
               label="Scegli un nuovo responsabile"
               className="max-w-xs"
@@ -128,4 +130,5 @@ const ContentShape = PropTypes.shape({
 
 ActionModal.propTypes = {
   content: ContentShape,
+  itemList: PropTypes.arrayOf(PropTypes.any),
 };

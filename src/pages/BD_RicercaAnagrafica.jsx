@@ -73,7 +73,7 @@ const RicercaAnagrafica = () => {
       </div>
 
       <div className="bg-seventh rounded-md flex-grow p-6 h-full overflow-y-scroll">
-        <form className="py-12 gri grid-cols-2" onSubmit={handleSubmit}>
+        <form className="py-12 grid grid-cols-2 gap-4" onSubmit={handleSubmit}>
           <BaseInput
             label="Denominazione"
             placeholder=""
@@ -100,7 +100,7 @@ const RicercaAnagrafica = () => {
           />
           <div className="py-3">
             <button
-              className="bg-rose-700 px-3 py-1 text-white border border-rose-700 hover:bg-white hover:text-rose-700 rounded-md "
+              className="bg-rose-700 px-3 py-1 text-white border border-rose-700 hover:bg-rose-50 hover:text-rose-700 rounded-md "
               type="submit"
             >
               Invia

@@ -12,8 +12,8 @@ import {
   Input,
   Tooltip,
 } from "@nextui-org/react";
-
 import { FiLink } from "react-icons/fi";
+import BoxPraticheSelezionate from "./BoxPraticheSelezionate";
 
 export default function AggiungiNotaModal({ content }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -43,11 +43,16 @@ export default function AggiungiNotaModal({ content }) {
                 {content.event}
               </ModalHeader>
               <ModalBody>
+                <div>
+                  <p className="text-sm">Pratiche Selezionate</p>
+                  <BoxPraticheSelezionate />
+                </div>
+
                 <Input
                   endContent={
                     <FiLink className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                   }
-                  placeholder="Nuovo Nome"
+                  placeholder="Scrivi qui la tua nota"
                   type="text"
                   variant="bordered"
                 />
@@ -59,7 +64,10 @@ export default function AggiungiNotaModal({ content }) {
                 >
                   <div className="flex flex-col">
                     <p className="text-small text-default-500">
-                      <p>Vuoi modificare il nome del file in:</p>
+                      <p>
+                        Vuoi aggiungere questa nota a{" "}
+                        <span className="text-amber-600">7</span> pratiche?
+                      </p>
                       <p className="text-rose-600">{value}</p>
                     </p>
                   </div>

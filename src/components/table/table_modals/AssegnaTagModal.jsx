@@ -13,6 +13,7 @@ import {
   SelectItem,
   Tooltip,
 } from "@nextui-org/react";
+import BoxPraticheSelezionate from "./BoxPraticheSelezionate";
 
 export default function AssegnaTag({ content }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -41,19 +42,12 @@ export default function AssegnaTag({ content }) {
           <ModalHeader>Assegna Tag</ModalHeader>
           <ModalBody>
             <div>
-              <div>Pratiche Selezionate</div>
-              <div className="border flex flex-wrap gap-x-1 text-slate-700 text-sm">
-                <div>Mario Rossi</div>
-                <div>Luca Bianchi</div>
-                <div>Gianni Verdi</div>
-                <div>Peppe Neri</div>
-              </div>
+              <div className="text-sm">Pratiche Selezionate</div>
+              <BoxPraticheSelezionate />
             </div>
             <div>
-              <div>Tag attuali</div>
-              <div className="border flex flex-wrap gap-x-1 text-slate-700 text-sm">
-                tag0
-              </div>
+              <div className="text-sm">Tag attuali: </div>
+              <div className="">tag0</div>
             </div>
             <Select
               selectionMode="multiple"
@@ -79,6 +73,9 @@ export default function AssegnaTag({ content }) {
                   <p>Vuoi assegnare i seguenti tag:</p>
                   <p className="text-rose-600">
                     {Array.from(values).join(", ")}
+                  </p>
+                  <p>
+                    a <span className="text-amber-600">17</span> pratiche
                   </p>
                 </p>
               </div>

@@ -1,4 +1,7 @@
 import { useState, useMemo, useCallback } from "react";
+import { useDispatch } from "react-redux";
+import { edit } from "../../store/selectedRowsActions";
+
 import {
   Tooltip,
   Table,
@@ -38,18 +41,34 @@ export default function ListaRichieste() {
     column: "age",
     direction: "ascending",
   });
+
   const [page, setPage] = useState(1);
-
   const pages = Math.ceil(pratiche.length / rowsPerPage);
-
   const hasSearchFilter = Boolean(filterValue);
+  const dispatch = useDispatch();
 
   const handleFilterChange = useCallback((filter) => {
     setSelectedFilter(filter);
   }, []);
 
+  const handleKeySelection = useCallback(
+    (value) => {
+      setSelectedKeys(value);
+      console.log(value);
+      const keysArray = Array.from(value).map((key) => String(key));
+      try {
+        JSON.stringify(keysArray);
+      } catch (error) {
+        console.error("I dati non sono serializzabili:", keysArray);
+        return;
+      }
+      dispatch(edit(keysArray));
+    },
+    [dispatch]
+  );
+
   const handleCellAction = () => {
-    console.log("stop");
+    console.log(selectedKeys);
   };
 
   // _________________HEADER_COLUMNS_________________
@@ -210,7 +229,9 @@ export default function ListaRichieste() {
           </Tooltip>
         );
       case "actions":
-        return <TableActions top={false} vertical={false} />;
+        return (
+          <TableActions top={false} vertical={false} itemList={selectedKeys} />
+        );
       default:
         return cellValue;
     }
@@ -300,7 +321,7 @@ export default function ListaRichieste() {
         sortDescriptor={sortDescriptor}
         topContent={topContent}
         topContentPlacement="outside"
-        onSelectionChange={setSelectedKeys}
+        onSelectionChange={handleKeySelection}
         onSortChange={setSortDescriptor}
       >
         <TableHeader columns={headerColumns}>
@@ -308,7 +329,7 @@ export default function ListaRichieste() {
             <TableColumn
               key={column.uid}
               allowsSorting={column.sortable}
-              style={{ minWidth: column.width }}
+              style={{ width: column.width }}
             >
               <div
                 className={`h-full w-full flex items-center ${

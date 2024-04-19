@@ -58,7 +58,7 @@ const MyForm = ({ width = "2/3" }) => {
         <div className="flex my-2">
           <button
             type="submit"
-            className="bg-rose-700 text-white px-4 py-1 rounded-md"
+            className="bg-rose-700 text-white border border-rose-700 px-4 py-1 rounded-md hover:bg-rose-50 hover:text-rose-700 transition-all duration-300"
           >
             Invia
           </button>
